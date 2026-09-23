@@ -1,0 +1,36 @@
+/* Version 3: one hero scale and one reading axis across the whole site. */
+
+body h1 {
+  font-size: clamp(2.95rem, 5.2vw, 4.75rem);
+}
+
+/* The public-training hero keeps its two-column composition, but its copy uses
+   the complete text column and wraps from the same left edge as the homepage. */
+body.event-landing .event-hero-copy,
+body.event-landing .event-hero h1,
+body.event-landing .event-hero .lead,
+body.event-landing .event-hero-copy > p {
+  width: 100%;
+  max-width: none;
+  margin-right: 0;
+  margin-left: 0;
+  text-align: left;
+}
+
+body.event-landing .event-hero h1,
+body.event-landing .event-hero .lead,
+body.event-landing .event-hero-copy > p:not(.eyebrow) {
+  text-wrap: pretty;
+}
+
+@media (max-width: 960px) {
+  body h1 {
+    font-size: clamp(2.65rem, 8.4vw, 4rem);
+  }
+}
+
+@media (max-width: 720px) {
+  body h1 {
+    font-size: clamp(2.35rem, 10.8vw, 3.15rem);
+  }
+}
