@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+
+<html lang="cs">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Resilium | Psychofyzický trénink jednání pod tlakem</title>
+<meta content="Psychofyzický trénink Resilium připravuje firmy, lídry a jednotlivce na situace, ve kterých reakce ovlivňuje komunikaci, rozhodování, výkon, bezpečnost nebo reputaci." name="description"/>
+<meta content="Resilium | Psychofyzický trénink jednání pod tlakem" property="og:title"/>
+<meta content="Vědět, co udělat, není totéž jako dokázat to použít pod tlakem." property="og:description"/>
+<meta content="website" property="og:type"/>
+<link href="assets/resilium-logo.webp" rel="icon" type="image/webp"/>
+<style>
+    :root {
+      --ink: #102b38;
+      --ink-2: #294554;
+      --muted: #667983;
+      --brand: #0f6469;
+      --brand-dark: #0a4d53;
+      --brand-soft: #e5f2f1;
+      --brand-pale: #f3f8f7;
+      --warm: #dca449;
+      --warm-soft: #fff7e6;
+      --paper: #f7f5ef;
+      --white: #ffffff;
+      --line: #d8e1e3;
+      --success: #17654f;
+      --danger: #a64040;
+      --shadow: 0 24px 70px rgba(16, 43, 56, .12);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--white);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.58;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+    button, input, select, textarea { font: inherit; }
+    button { color: inherit; }
+    img { max-width: 100%; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+    .section { padding: 102px 0; }
+    .section-soft { background: var(--paper); }
+    .section-pale { background: var(--brand-pale); }
+    .section-dark { background: var(--ink); color: var(--white); }
+    .section-dark p, .section-dark .lead { color: #d4e0e4; }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--brand);
+      font-size: .77rem;
+      font-weight: 850;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .section-dark .eyebrow { color: #92d4d5; }
+
+    h1, h2, h3 {
+      margin-top: 0;
+      line-height: 1.08;
+      letter-spacing: -.035em;
+    }
+    h1 { font-size: clamp(2.85rem, 6vw, 5.85rem); max-width: 1000px; margin-bottom: 25px; }
+    h2 { font-size: clamp(2.05rem, 4vw, 3.75rem); margin-bottom: 22px; }
+    h3 { font-size: 1.32rem; margin-bottom: 10px; }
+    p { margin-top: 0; }
+    .lead { color: var(--muted); font-size: clamp(1.11rem, 2vw, 1.4rem); max-width: 820px; }
+    .small { color: var(--muted); font-size: .9rem; }
+    .section-head { max-width: 850px; margin-bottom: 48px; }
+
+    .nav {
+      position: absolute;
+      inset: 0 0 auto;
+      z-index: 30;
+      padding: 22px 0;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .logo {
+      text-decoration: none;
+      font-weight: 950;
+      letter-spacing: .16em;
+      font-size: .98rem;
+    }
+    .nav-links { display: flex; align-items: center; gap: 22px; }
+    .nav-links > a:not(.btn) {
+      text-decoration: none;
+      font-size: .9rem;
+      color: var(--ink-2);
+      font-weight: 760;
+    }
+
+    .btn {
+      min-height: 54px;
+      padding: 0 25px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 850;
+      cursor: pointer;
+      transition: transform .17s ease, background .17s ease, box-shadow .17s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      color: white;
+      background: var(--brand);
+      box-shadow: 0 14px 30px rgba(15, 100, 105, .22);
+    }
+    .btn-primary:hover { background: var(--brand-dark); }
+    .btn-secondary { background: rgba(255,255,255,.78); border-color: #b9c8cc; }
+    .btn-light { background: white; color: var(--brand-dark); }
+    .btn-block { width: 100%; border: 0; }
+
+    .hero {
+      min-height: 885px;
+      position: relative;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      padding: 150px 0 86px;
+      background:
+        linear-gradient(110deg, rgba(255,255,255,.98) 0%, rgba(243,248,247,.96) 57%, rgba(222,239,238,.95) 100%);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      right: -170px;
+      bottom: -170px;
+      border-radius: 50%;
+      border: 1px solid rgba(15,100,105,.16);
+      box-shadow:
+        0 0 0 78px rgba(15,100,105,.035),
+        0 0 0 156px rgba(15,100,105,.022);
+    }
+    .hero-copy { position: relative; z-index: 2; }
+    .hero h1 span { color: var(--brand); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin: 34px 0 24px; }
+    .hero-proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 24px;
+      color: var(--muted);
+      font-size: .92rem;
+      margin-bottom: 44px;
+    }
+    .hero-proof span::before {
+      content: "✓";
+      margin-right: 7px;
+      color: var(--brand);
+      font-weight: 950;
+    }
+
+    .audience-jump {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 13px;
+      max-width: 1080px;
+    }
+    .audience-chip {
+      min-height: 102px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      padding: 18px 20px;
+      text-align: left;
+      background: rgba(255,255,255,.92);
+      cursor: pointer;
+      transition: transform .16s, border-color .16s, box-shadow .16s, background .16s;
+    }
+    .audience-chip:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(16,43,56,.08);
+    }
+    .audience-chip.active {
+      border-color: var(--brand);
+      background: var(--brand-pale);
+      box-shadow: 0 0 0 3px rgba(15,100,105,.10);
+    }
+    .audience-chip small {
+      display: block;
+      color: var(--brand);
+      font-weight: 850;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .audience-chip strong { display: block; font-size: 1.09rem; line-height: 1.28; }
+
+    .segment-section { padding-top: 78px; }
+    .segment-selector {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+    .segment-tab {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: white;
+      padding: 22px;
+      text-align: left;
+      cursor: pointer;
+      transition: all .16s;
+    }
+    .segment-tab:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(16,43,56,.08); }
+    .segment-tab.active {
+      border-color: var(--brand);
+      background: var(--brand-pale);
+      box-shadow: 0 0 0 3px rgba(15,100,105,.10);
+    }
+    .segment-tab strong { display: block; font-size: 1.12rem; margin-bottom: 6px; }
+    .segment-tab span { color: var(--muted); font-size: .92rem; }
+
+    .segment-panel {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 44px;
+      align-items: center;
+      min-height: 390px;
+      padding: 44px;
+      border-radius: 27px;
+      background: var(--ink);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+    .segment-panel p { color: #d5e0e4; }
+    .segment-panel .eyebrow { color: #93d5d6; }
+    .segment-panel h2 { font-size: clamp(2rem, 3.6vw, 3.4rem); }
+    .segment-panel .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 25px; }
+    .segment-situations {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .situation {
+      min-height: 106px;
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 15px;
+      background: rgba(255,255,255,.055);
+    }
+    .situation strong { display: block; margin-bottom: 5px; }
+    .situation span { color: #c4d3d8; font-size: .9rem; }
+
+    .problem-grid, .use-grid, .benefit-grid, .evidence-grid, .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 19px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      padding: 28px;
+    }
+    .card p { color: var(--muted); }
+    .problem-card {
+      min-height: 230px;
+      position: relative;
+      padding-top: 72px;
+    }
+    .problem-card .tag {
+      position: absolute;
+      top: 26px;
+      left: 28px;
+      color: var(--brand);
+      font-size: .74rem;
+      font-weight: 900;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+    .problem-card blockquote {
+      margin: 0 0 14px;
+      font-size: 1.18rem;
+      font-weight: 790;
+      line-height: 1.34;
+    }
+
+    .impact-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      margin-top: 38px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+    .impact-item { padding: 21px; background: white; }
+    .impact-item strong { display: block; font-size: 1.05rem; margin-bottom: 4px; }
+    .impact-item span { color: var(--muted); font-size: .89rem; }
+
+    .model-wrap {
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      gap: 54px;
+      align-items: start;
+    }
+    .model {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 11px;
+    }
+    .model-step {
+      min-height: 142px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 16px;
+      background: rgba(255,255,255,.055);
+    }
+    .model-step small { color: #93d4d6; font-weight: 900; }
+    .model-step strong { line-height: 1.28; }
+    .model-step.highlight { background: var(--brand); border-color: var(--brand); }
+
+    .method-layout {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 52px;
+      align-items: start;
+    }
+    .method-contrast {
+      padding: 31px;
+      border: 1px solid var(--line);
+      border-radius: 23px;
+      background: white;
+      box-shadow: var(--shadow);
+    }
+    .contrast-row {
+      display: grid;
+      grid-template-columns: 145px 1fr;
+      gap: 17px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .contrast-row:last-child { border-bottom: 0; }
+    .contrast-row span { color: var(--muted); }
+    .method-steps { display: grid; gap: 12px; }
+    .method-step {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 18px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: white;
+    }
+    .method-step .num {
+      width: 42px; height: 42px;
+      display: grid; place-items: center;
+      border-radius: 50%;
+      background: var(--brand-soft);
+      color: var(--brand-dark);
+      font-weight: 950;
+    }
+    .method-step p { margin: 4px 0 0; color: var(--muted); }
+
+    .benefit-card .num {
+      width: 42px; height: 42px;
+      display: grid; place-items: center;
+      border-radius: 50%;
+      background: var(--warm-soft);
+      color: #8c641b;
+      font-weight: 950;
+      margin-bottom: 20px;
+    }
+    .scenario-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .scenario-card {
+      min-height: 250px;
+    }
+    .scenario-card h3 {
+      max-width: 24ch;
+    }
+    .mentor-copy h3 {
+      margin: 30px 0 10px;
+      font-size: 1.24rem;
+    }
+    .mentor-copy h3:first-child {
+      margin-top: 0;
+    }
+    .mentor-related-note {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .92rem;
+    }
+    .mentor-related-note a {
+      color: inherit;
+      font-weight: 750;
+    }
+
+    .use-card {
+      min-height: 205px;
+      position: relative;
+      overflow: hidden;
+    }
+    .use-card::after {
+      content: "";
+      position: absolute;
+      width: 84px; height: 84px;
+      right: -34px; bottom: -34px;
+      border-radius: 50%;
+      background: var(--brand-soft);
+    }
+    .use-card .audiences {
+      margin-top: 20px;
+      color: var(--brand);
+      font-size: .79rem;
+      font-weight: 850;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    .evidence-card .strength {
+      display: inline-block;
+      margin-bottom: 11px;
+      color: var(--brand);
+      font-size: .75rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .evidence-note {
+      margin-top: 28px;
+      padding: 24px 27px;
+      border-left: 4px solid var(--warm);
+      border-radius: 0 16px 16px 0;
+      background: var(--warm-soft);
+    }
+
+    .mentor {
+      display: grid;
+      grid-template-columns: .88fr 1.12fr;
+      gap: 52px;
+      align-items: center;
+    }
+    .mentor-visual {
+      min-height: 470px;
+      position: relative;
+      border-radius: 27px;
+      overflow: hidden;
+      background:
+        linear-gradient(145deg, rgba(15,100,105,.16), rgba(16,43,56,.02)),
+        #dceae9;
+    }
+    .mentor-visual::before {
+      content: "Místo pro autentickou fotografii Radima během tréninku";
+      position: absolute;
+      left: 30px; right: 30px; bottom: 30px;
+      padding: 17px 19px;
+      border-radius: 13px;
+      color: white;
+      background: rgba(16,43,56,.82);
+      font-weight: 760;
+    }
+    .mentor-list {
+      list-style: none;
+      padding: 0;
+      margin: 25px 0 0;
+    }
+    .mentor-list li {
+      position: relative;
+      padding-left: 29px;
+      margin-bottom: 13px;
+    }
+    .mentor-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--brand);
+      font-weight: 950;
+    }
+
+    .lead-section {
+      background: var(--ink);
+      color: white;
+    }
+    .lead-layout {
+      display: grid;
+      grid-template-columns: .76fr 1.24fr;
+      gap: 58px;
+      align-items: start;
+    }
+    .lead-layout p, .lead-layout .lead { color: #d3dfe3; }
+    .checks {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0 0;
+    }
+    .checks li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 12px;
+    }
+    .checks li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #91d2d3;
+      font-weight: 950;
+    }
+    .form-card {
+      padding: 34px;
+      border-radius: 25px;
+      background: white;
+      color: var(--ink);
+      box-shadow: var(--shadow);
+    }
+    .form-segment {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 25px;
+    }
+    .form-segment button {
+      min-height: 50px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: #f2f5f5;
+      cursor: pointer;
+      font-weight: 760;
+    }
+    .form-segment button.active {
+      border-color: var(--brand);
+      background: var(--brand-soft);
+      color: var(--brand-dark);
+    }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; }
+    .field { display: grid; gap: 7px; }
+    .field-full { grid-column: 1 / -1; }
+    label { font-size: .91rem; font-weight: 780; }
+    input, select, textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid #b9c8cc;
+      border-radius: 11px;
+      outline: none;
+      color: var(--ink);
+      background: white;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--brand);
+      box-shadow: 0 0 0 4px rgba(15,100,105,.11);
+    }
+    textarea { min-height: 110px; resize: vertical; }
+    .dynamic-field { display: none; }
+    .dynamic-field.visible { display: grid; }
+    .check {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 10px;
+      align-items: start;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+    .check input { width: 18px; height: 18px; margin-top: 3px; }
+    .error { min-height: 1em; color: var(--danger); font-size: .81rem; }
+    .form-note {
+      margin: 18px 0;
+      padding: 15px;
+      border-radius: 12px;
+      color: #24584a;
+      background: #edf7f3;
+      font-size: .91rem;
+    }
+    .success {
+      display: none;
+      margin-top: 18px;
+      padding: 20px;
+      border-radius: 13px;
+      color: var(--success);
+      background: #e8f6f0;
+      font-weight: 760;
+    }
+
+    details { padding: 21px 0; border-top: 1px solid var(--line); }
+    details:last-child { border-bottom: 1px solid var(--line); }
+    summary { cursor: pointer; list-style: none; font-size: 1.08rem; font-weight: 850; }
+    summary::-webkit-details-marker { display: none; }
+    details p { margin: 13px 0 0; color: var(--muted); max-width: 900px; }
+
+    .final-choices {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+    .choice {
+      min-height: 210px;
+      padding: 28px;
+      border-radius: 20px;
+      color: white;
+      background: var(--brand);
+    }
+    .choice:nth-child(2) { background: var(--brand-dark); }
+    .choice:nth-child(3) { background: var(--ink); }
+    .choice p { color: #dbe9e9; }
+
+    footer {
+      padding: 46px 0 100px;
+      color: #c6d4d9;
+      background: #0a202b;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    footer strong { color: white; letter-spacing: .15em; }
+
+    .mobile-cta {
+      display: none;
+      position: fixed;
+      z-index: 40;
+      left: 12px; right: 12px; bottom: 12px;
+      box-shadow: 0 16px 42px rgba(0,0,0,.25);
+    }
+
+    @media (max-width: 980px) {
+      .segment-panel, .model-wrap, .method-layout, .mentor, .lead-layout {
+        grid-template-columns: 1fr;
+      }
+      .problem-grid, .use-grid, .benefit-grid, .evidence-grid, .trust-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .impact-strip { grid-template-columns: 1fr 1fr; }
+      .segment-situations { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 680px) {
+      .wrap { width: min(100% - 28px, var(--max)); }
+      .section { padding: 74px 0; }
+      .hero { min-height: auto; padding-top: 130px; }
+      .audience-jump, .segment-selector, .problem-grid, .use-grid, .benefit-grid,
+      .evidence-grid, .trust-grid, .final-choices, .form-grid, .form-segment {
+        grid-template-columns: 1fr;
+      }
+      .segment-panel, .form-card { padding: 25px 21px; }
+      .segment-situations, .impact-strip, .model { grid-template-columns: 1fr; }
+      .scenario-card { min-height: 0; }
+      .field-full { grid-column: auto; }
+      .contrast-row { grid-template-columns: 1fr; gap: 5px; }
+      .mentor-visual { min-height: 340px; }
+      .mobile-cta { display: inline-flex; }
+      footer { padding-bottom: 112px; }
+    }
+  
+    .audience-link { text-decoration: none; color: inherit; display: block; }
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 38px;
+    }
+    .program-card {
+      position: relative;
+      min-height: 285px;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: white;
+      padding: 27px;
+    }
+    .program-card .duration {
+      display: inline-flex;
+      align-self: flex-start;
+      margin-bottom: 20px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      color: var(--brand-dark);
+      background: var(--brand-soft);
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .program-card p { color: var(--muted); }
+    .program-card .program-link {
+      margin-top: auto;
+      color: var(--brand);
+      font-weight: 850;
+      text-decoration: none;
+    }
+    .program-card.featured {
+      color: white;
+      background: var(--brand);
+      border-color: var(--brand);
+    }
+    .program-card.featured p { color: #deeeee; }
+    .program-card.featured .duration { color: white; background: rgba(255,255,255,.14); }
+    .program-card.featured .program-link { color: white; }
+    .program-note {
+      margin-top: 24px;
+      padding: 20px 23px;
+      border-left: 4px solid var(--warm);
+      border-radius: 0 14px 14px 0;
+      background: var(--warm-soft);
+    }
+    @media (max-width: 980px) {
+      .programs-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 680px) {
+      .programs-grid { grid-template-columns: 1fr; }
+    }
+</style>
+<link href="assets/resilium.css?v=20260906-nav1" rel="stylesheet"/>
+<link href="assets/homepage-mobile.css?v=20260801-flow6" rel="stylesheet"/>
+<link href="assets/v3-unified.css?v=20260804-hero1" rel="stylesheet">
+<link href="assets/homepage-hero.css?v=20260906-cta1" rel="stylesheet">
+</head>
+<body class="home-page">
+<nav aria-label="Hlavní navigace" class="nav">
+<div class="wrap nav-inner">
+<a aria-label="Resilium – úvodní stránka" class="logo" href="index.html#top"><img alt="Resilium" height="48" src="assets/resilium-logo.webp" width="68"/></a>
+<button aria-controls="mainNav" aria-expanded="false" aria-label="Otevřít hlavní menu" class="menu-toggle" type="button"><span></span></button>
+<div class="nav-links" id="mainNav">
+<a href="#prinos-treninku">Kdy vám trénink pomůže</a>
+<a href="#metoda">Jak trénink probíhá</a>
+<a href="clanky.html">Články a poznatky</a>
+<a href="experiment-pod-tlakem.html">Stresový test · 3 min</a>
+<a href="#o-nas">O Resiliu</a>
+<a aria-label="Veřejný trénink pro jednotlivce – Praha 21. 11. 2026" class="btn btn-primary" href="resilium-trenink-praha-21-11-2026.html">Veřejný trénink 21. 11.</a>
+</div>
+</div>
+</nav>
+<header class="hero hero--portrait" id="top">
+<div class="wrap hero-layout">
+<div class="hero-copy">
+<p class="eyebrow">Psychofyzický trénink lidského jednání pod tlakem</p>
+<h1>Zvládejte tlak, konflikt a rizikové situace jistěji.</h1>
+<p class="lead">
+        V bezpečně řízené zátěži poznáte, co s vámi tlak dělá, a nacvičíte reakci,
+        o kterou se můžete opřít v konfliktu, náročném rozhodnutí i rizikové situaci.
+      </p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="resilium-trenink-praha-21-11-2026.html">Prohlédnout veřejný trénink</a>
+<a class="btn btn-secondary" href="experiment-pod-tlakem.html">Vyzkoušet stresový test · 3 min</a>
+</div>
+<p class="hero-event-note">Praha · 21. 11. 2026 · jednodenní praktický trénink</p>
+<div class="hero-proof">
+<span><strong>Řízený praktický nácvik</strong></span>
+<span><strong>Pro firmy i jednotlivce</strong></span>
+<span><strong>Vědecký základ a zkušené vedení</strong></span>
+</div>
+</div>
+<figure class="hero-portrait">
+<img src="assets/images/resilium-nove/radim-hero-20260828.webp" alt="Radim Končítek s klidným pohledem do kamery" width="1536" height="1024" fetchpriority="high"/>
+<figcaption>
+<strong>Mgr. Radim Končítek</strong>
+<span>Autor metody a hlavní lektor Resilia</span>
+</figcaption>
+</figure>
+</div>
+</header>
+<section aria-labelledby="audienceNavigationTitle" class="audience-navigation" id="pro-koho">
+<div class="wrap">
+<div class="audience-navigation-head">
+<p class="eyebrow">Vyberte svou oblast</p>
+<h2 id="audienceNavigationTitle">Komu má trénink pomoci?</h2>
+</div>
+<div aria-label="Vyberte svou oblast" class="audience-jump">
+<a class="audience-chip audience-link" data-segment="companies" href="firmy-a-organizace.html">
+<span aria-hidden="true" class="audience-icon">
+<svg fill="none" viewBox="0 0 24 24"><path d="M4 21V5.8c0-.44.36-.8.8-.8H15v16M15 10h4.2c.44 0 .8.36.8.8V21M2.5 21h19M7.5 8h1M11 8h1M7.5 11.5h1M11 11.5h1M7.5 15h1M11 15h1M17.5 13.5h.01M17.5 17h.01" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"/></svg>
+</span>
+<small>Firmy a organizace</small>
+<strong>Připravit lidi a týmy na náročné provozní situace</strong>
+</a>
+<a class="audience-chip audience-link" data-segment="leaders" href="lideri-a-manazeri.html">
+<span aria-hidden="true" class="audience-icon">
+<svg fill="none" viewBox="0 0 24 24"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm7 8v-1.4a4.6 4.6 0 0 0-4.6-4.6H9.6A4.6 4.6 0 0 0 5 18.6V20h14Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"/></svg>
+</span>
+<small>Lídři a manažeři</small>
+<strong>Zachovat úsudek, autoritu a schopnost vést</strong>
+</a>
+<a class="audience-chip audience-link" data-segment="individuals" href="jednotlivci.html">
+<span aria-hidden="true" class="audience-icon">
+<svg fill="none" viewBox="0 0 24 24"><path d="M8.5 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm7 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM2.5 20v-1.2A4.8 4.8 0 0 1 7.3 14h2.4a4.8 4.8 0 0 1 4.8 4.8V20m.2-5.9h1.9a4.9 4.9 0 0 1 4.9 4.9v1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"/></svg>
+</span>
+<small>Jednotlivci</small>
+<strong>Reagovat blíž tomu, jak skutečně chcete</strong>
+</a>
+</div>
+<div class="audience-assurance">
+<p><span aria-hidden="true" class="audience-assurance-icon"><svg fill="none" viewBox="0 0 24 24"><path d="M12 3 5.5 5.6v5.2c0 4.1 2.7 7.9 6.5 9.2 3.8-1.3 6.5-5.1 6.5-9.2V5.6L12 3Z" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5"/><path d="m9 11.7 2 2 4-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></span>Trénink je praktický, bezpečný a přizpůsobený realitě.</p>
+<a href="#metoda">Jak trénink probíhá? <span aria-hidden="true">→</span></a>
+</div>
+</div>
+</section>
+<aside aria-label="Aktuální veřejný trénink" class="training-campaign">
+<div class="campaign-inner">
+<div class="campaign-copy">
+<div class="campaign-date"><strong>21. 11.</strong>2026</div>
+<div>
+<p class="campaign-kicker">Aktuálně nabíráme účastníky</p>
+<p class="campaign-title">Psychofyzický trénink Resilium pro jednotlivce · Praha</p>
+</div>
+</div>
+<a class="btn btn-primary" href="resilium-trenink-praha-21-11-2026.html">Prohlédnout veřejný trénink</a>
+</div>
+</aside>
+<main class="home-flow">
+<section aria-hidden="true" class="section section-soft segment-section" hidden id="segmenty">
+<div class="wrap">
+<div class="section-head">
+<p class="eyebrow">Příprava podle vaší role a situace</p>
+<h2>Kde potřebujete změnu?</h2>
+<p class="lead">
+            Základní mechanismus je společný. Jiná je situace zaměstnance první linie,
+            jiná role manažera a jiná osobní zkušenost člověka mimo práci.
+          </p>
+</div>
+<div aria-label="Vyberte cílovou skupinu, o které se chcete dozvědět více" class="segment-selector">
+<button aria-controls="segmentPanel" aria-expanded="false" class="segment-tab" data-segment="companies" type="button">
+<span class="segment-tab-copy"><strong>Firmy a organizace</strong><span>Výkon, bezpečnost, klient, reputace a připravenost týmu.</span></span>
+<span class="segment-tab-action"><span class="segment-action-label">Jak Resilium pomáhá</span><span aria-hidden="true" class="segment-action-icon">↓</span></span>
+</button>
+<button aria-controls="segmentPanel" aria-expanded="false" class="segment-tab" data-segment="leaders" type="button">
+<span class="segment-tab-copy"><strong>Lídři a manažeři</strong><span>Vlastní výkon, spokojenost, rozhodování a vedení lidí.</span></span>
+<span class="segment-tab-action"><span class="segment-action-label">Jak Resilium pomáhá</span><span aria-hidden="true" class="segment-action-icon">↓</span></span>
+</button>
+<button aria-controls="segmentPanel" aria-expanded="false" class="segment-tab" data-segment="individuals" type="button">
+<span class="segment-tab-copy"><strong>Jednotlivci</strong><span>Ztuhnutí, ústup, prudká reakce, kritika a hranice.</span></span>
+<span class="segment-tab-action"><span class="segment-action-label">Jak Resilium pomáhá</span><span aria-hidden="true" class="segment-action-icon">↓</span></span>
+</button>
+</div>
+<div aria-labelledby="segmentHeadline" class="segment-panel" hidden id="segmentPanel" role="region">
+<div>
+<p class="eyebrow" id="segmentEyebrow">Firmy a organizace</p>
+<h2 id="segmentHeadline">Vaši lidé znají správný postup. Dokážou jej použít i pod tlakem?</h2>
+<p id="segmentCopy">
+              Psychofyzický trénink Resilium připravuje zaměstnance a týmy na situace,
+              ve kterých chyba, eskalace nebo nevhodná reakce může ovlivnit klienta,
+              provoz, bezpečnost nebo reputaci organizace.
+            </p>
+<div class="cta-row">
+<a class="btn btn-light segment-primary" href="firmy-a-organizace.html">Popsat situaci ve firmě</a>
+<a class="btn btn-secondary segment-secondary" href="situace.html#firmy">Prohlédnout oblasti využití</a>
+</div>
+</div>
+<div class="segment-situations" id="segmentSituations"></div>
+<button class="segment-panel-close" type="button">Skrýt informace <span aria-hidden="true">↑</span></button>
+</div>
+</div>
+</section>
+<section class="section section-dark response-model-section">
+<div class="wrap model-wrap">
+<div>
+<p class="eyebrow">Proč pod tlakem reagujeme jinak</p>
+<h2>Pozorujete u sebe, že pod tlakem reagujete jinak, než jak byste chtěli?</h2>
+<p class="lead">
+            <strong>Když přijde tlak, vaše schopnosti nezmizí. Jen k nim máte, díky psychofyzické reakci, horší přístup.</strong>
+            Tlak může zúžit pozornost, zrychlit tělesnou reakci a zhoršit přístup ke slovům
+            nebo známému postupu. Resilium trénuje okamžik, ve kterém lze znovu získat
+            prostor pro vlastní volbu.
+          </p>
+</div>
+<div aria-label="Human Response Model" class="model" role="list">
+<div class="model-step" role="listitem">
+<small>01</small>
+<div class="model-step-copy">
+<strong>Situace vás zaskočí</strong>
+<span><b>Konflikt, kritika nebo náročné rozhodnutí</b> přijdou dřív, než se stihnete připravit.</span>
+</div>
+</div>
+<div class="model-step" role="listitem">
+<small>02</small>
+<div class="model-step-copy">
+<strong>Tělo reaguje dřív než vy</strong>
+<span><b>Dech se zrychlí a pozornost se sníží.</b> Můžete se začít bránit, ustupovat, zamrznout nebo reagovat prudce.</span>
+</div>
+</div>
+<div class="model-step" role="listitem">
+<small>03</small>
+<div class="model-step-copy">
+<strong>Možnosti jednání se zužují</strong>
+<span>Slova, nadhled i známý postup jsou hůře dostupné a automatické reakce snadno převezmou řízení.</span>
+</div>
+</div>
+<div class="model-step highlight" role="listitem">
+<small>04</small>
+<div class="model-step-copy">
+<strong>Včasná regulace umožní jednat, jak byste chtěli</strong>
+<span>Zachytíte první signály a můžete se znovu opřít o úsudek, zkušenosti a vlastní rozhodnutí.</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<aside aria-label="Interaktivní stresový experiment" class="map-launch">
+<div class="wrap map-launch-inner">
+<div class="map-launch-copy">
+<p class="map-launch-kicker">Stresový test · 3 minuty</p>
+<h2>Co udělá časový tlak s vaší přesností?</h2>
+<p>Dvě krátká kola vám ukážou rozdíl mezi rozhodováním v klidu a pod časovým tlakem.</p>
+</div>
+<a class="btn btn-primary preserve-campaign" href="experiment-pod-tlakem.html">Spustit 3minutový stresový test</a>
+</div>
+</aside>
+<section class="section section-pale home-offer-start" id="metoda">
+<div class="wrap">
+<div class="section-head method-section-head">
+<p class="eyebrow">Jak trénink funguje</p>
+<h2>Nestačí vědět, co dělat. Potřebujete si to bezpečně nacvičit.</h2>
+<p class="lead">
+            Znalosti v krizové situaci nestačí. Rozhoduje fyzický nácvik. Teoretické návody
+            selhávají ve chvíli, kdy tělo zaplaví stresový hormon. V Resiliu propojujeme
+            fyzickou reakci, pozornost a rozhodování do jednoho funkčního celku.
+          </p>
+</div>
+<div class="method-layout">
+<div class="method-intro">
+<p>
+            Řízená zátěž není cílem ani testem odolnosti. Je účinnou metodou, díky které
+            poznáte vlastní reakci a nacvičíte si, jak příště jednat s klidem a efektivně.
+          </p>
+<figure class="training-photo method-photo">
+<img alt="Lektor Resilium vysvětluje další postup skupině účastníků" decoding="async" height="960" loading="lazy" src="assets/images/resilium-nove/lektor-skupina-stoji.webp" width="1639"/>
+</figure>
+</div>
+<div class="method-steps">
+<article class="method-step">
+<div class="num">01</div>
+<div><h3>Vystavíme vás řízené zátěži</h3><p><strong>Bezpečně nasimulujeme reálnou zátěž</strong>, ve které se projeví vaše skutečné návyky a automatické reakce.</p></div>
+</article>
+<article class="method-step">
+<div class="num">02</div>
+<div><h3>Zažijete, jak reagujete pod tlakem</h3><p>Všimnete si, že rychleji dýcháte, snižuje se vaše pozornost nebo se mění hlas, tempo či postoj.</p></div>
+</article>
+<article class="method-step">
+<div class="num">03</div>
+<div><h3>Naučíte se regulovat své reakce</h3><p>Nacvičíte a osvojíte si techniky regulace stresové situace dřív, než vaše tělo ovládnou zautomatizované reakce.</p></div>
+</article>
+<article class="method-step">
+<div class="num">04</div>
+<div><h3>Trénujete a osvojujete si nové reakce</h3><p>Upevníme nové a účinnější vzorce jednání tak, aby byly přirozeně dostupné v běžném životě i práci.</p></div>
+</article>
+</div>
+</div>
+<section aria-labelledby="training-comparison-title" class="training-comparison">
+<div class="training-comparison-head">
+<p class="eyebrow">Praktický rozdíl</p>
+<h3 id="training-comparison-title">V čem je Resilium jiné než běžná školení</h3>
+<p>Resilium teorii nenahrazuje. Přidává bezpečně řízený nácvik chvíle, ve které má být známý postup skutečně použit.</p>
+</div>
+<div aria-label="Srovnání běžných školení a tréninku Resilium" class="training-comparison-table" role="table">
+<div class="training-comparison-header" role="row">
+<span aria-hidden="true"></span>
+<div role="columnheader"><span>Běžná školení</span><strong>Modelové a obecné příklady</strong></div>
+<div class="training-comparison-resilium" role="columnheader"><span>Resilium</span><strong>Důraz na prožitek a funkčnost</strong></div>
+</div>
+<div class="training-comparison-row" role="row">
+<span aria-hidden="true" class="training-comparison-number">01</span>
+<div data-label="Běžná školení" role="cell"><p>Přednášejí teorii a poučky, jak byste se měli v konfliktu chovat.</p></div>
+<div class="training-comparison-resilium" data-label="Resilium" role="cell"><p>Trénujeme reálné situace na vlastní kůži, abyste si správný postup fyzicky zažili.</p></div>
+</div>
+<div class="training-comparison-row" role="row">
+<span aria-hidden="true" class="training-comparison-number">02</span>
+<div data-label="Běžná školení" role="cell"><p>Rozebírají modelové příklady u stolu v klidové zóně.</p></div>
+<div class="training-comparison-resilium" data-label="Resilium" role="cell"><p>Vytváříme dávkovanou zátěž, ve které odhalíte své automatické tělesné signály.</p></div>
+</div>
+<div class="training-comparison-row" role="row">
+<span aria-hidden="true" class="training-comparison-number">03</span>
+<div data-label="Běžná školení" role="cell"><p>Učí vás, co říct, ale ignorují stav vaší nervové soustavy.</p></div>
+<div class="training-comparison-resilium" data-label="Resilium" role="cell"><p>Pracujeme s dechem, hlasem, pozorností, postojem, hranicemi a prostorem.</p></div>
+</div>
+</div>
+</section>
+</div>
+</section>
+<section aria-labelledby="situations-title" class="section" id="prinos-treninku">
+<div class="wrap">
+<div class="section-head">
+<p class="eyebrow">Kdy trénink dává smysl</p>
+<h2 id="situations-title">Poznáváte se v některé z těchto situací?</h2>
+<p class="lead">
+            Trénink je určený pro chvíle, kdy víte, co byste chtěli udělat, ale tlak vám
+            zúží možnosti. Neučíte se univerzální odpověď. Nacvičujete, jak si v konkrétní
+            situaci udržet přístup k vlastnímu úsudku a volbě.
+          </p>
+</div>
+<div class="benefit-grid scenario-grid">
+<article class="card benefit-card scenario-card"><div class="num">01</div><h3>Kritika nebo konflikt vás zaskočí</h3><p>Víte, co chcete říct, ale začnete se obhajovat, ustoupíte nebo vám dojdou slova. Trénujete, jak zachytit první reakci a znovu se opřít o svůj záměr.</p></article>
+<article class="card benefit-card scenario-card"><div class="num">02</div><h3>Potřebujete nastavit hranici</h3><p>Řeknete ano, i když chcete říct ne, nebo hranici sdělíte prudčeji, než jste zamýšleli. Nacvičíte si pevnou a srozumitelnou reakci bez zbytečné eskalace.</p></article>
+<article class="card benefit-card scenario-card"><div class="num">03</div><h3>Musíte se rozhodnout pod tlakem</h3><p>Pozornost se zúží a první řešení začne vypadat jako jediné. Trénujete, jak si vytvořit prostor, obnovit přehled a zvolit další krok.</p></article>
+<article class="card benefit-card scenario-card"><div class="num">04</div><h3>Nečekaná situace vás zablokuje</h3><p>Zamrznete, přehlédnete varovný signál nebo začnete jednat impulzivně. Nacvičíte si, jak se zorientovat dřív, než automatická reakce převezme řízení.</p></article>
+</div>
+<div class="cta-row">
+<a class="btn btn-primary" href="resilium-trenink-praha-21-11-2026.html">Prohlédnout veřejný trénink</a>
+<a class="btn btn-secondary" href="experiment-pod-tlakem.html">Vyzkoušet stresový test · 3 min</a>
+</div>
+</div>
+</section>
+<section aria-labelledby="about-title" class="section mentor-section" id="o-nas">
+<div class="wrap">
+<div class="section-head mentor-section-head">
+<p class="eyebrow">O Resiliu</p>
+<h2 id="about-title">Praktická zkušenost převedená do tréninku pro běžný život a práci.</h2>
+<p class="lead">Resilium vzniklo z jednoduché otázky: proč lidé v klidu vědí, co chtějí udělat, ale pod tlakem se ke svým slovům, zkušenostem a úsudku dostávají obtížněji?</p>
+<p>Odpovědí je praktický trénink, který propojuje vnímání tělesné reakce, práci s pozorností, dechem, hlasem, hranicemi a prostorem s opakovaným nácvikem konkrétního jednání. Resilium neučí jednu správnou odpověď. Pomáhá účastníkům rozpoznat vlastní automatickou reakci a získat více možností, jak v náročné situaci jednat.</p>
+</div>
+<div class="mentor">
+<figure class="mentor-visual">
+<img alt="Radim Končítek vede bezprostřední reflexi s účastníkem po náročném cvičení" decoding="async" height="1402" loading="lazy" src="assets/images/resilium-nove/reflexe-po-zatezi-muz.webp" width="1122"/>
+<figcaption class="mentor-caption">
+<strong>Radim Končítek</strong>
+<span>autor metodiky a hlavní lektor systému Resilium</span>
+</figcaption>
+</figure>
+<div class="mentor-copy">
+<h3>Kdo trénink vede</h3>
+<p class="lead mentor-bio">Radim Končítek se více než třicet let věnuje osobní bezpečnosti, sebeobraně a vedení praktického nácviku pod zátěží. Tato zkušenost je jedním z východisek Resilia.</p>
+<p>Resilium však není kurzem sebeobrany. Převádí práci s reakcí pod tlakem do situací, ve kterých rozhodují komunikace, pozornost, hranice, úsudek a volba dalšího jednání.</p>
+<p>Radim vede tréninky osobně. Zátěž vytváří postupně a s ohledem na možnosti účastníků. Po každé zkušenosti následuje reflexe a další nácvik v bezpečném a respektujícím prostředí.</p>
+<h3>Co Resilium je a není</h3>
+<p>Resilium je vlastní tréninkový rámec vycházející z poznatků o reakcích člověka na akutní tlak a z dlouhodobé praktické zkušenosti s nácvikem náročných situací.</p>
+<p>Není terapií, psychologickou diagnostikou, testem odolnosti ani kurzem fyzického boje. Neslibuje absolutní kontrolu nad emocemi. Cílem je lépe rozpoznat vlastní reakci a nacvičit si, jak si zachovat více prostoru pro vědomé jednání.</p>
+<p class="mentor-related-note">Radim zároveň vede samostatný sebeobranný program <a href="https://www.resconselfdefense.cz/" rel="noopener noreferrer" target="_blank">RES-CON SELF DEFENSE</a> zaměřený na osobní bezpečnost a fyzické ohrožení.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="section lead-section" id="kontakt">
+<div class="wrap lead-layout">
+<div>
+<p class="eyebrow">Poptávka a doporučení programu</p>
+<h2 id="formHeadline">Jakou situaci potřebujete ve své organizaci zvládat lépe?</h2>
+<p class="lead" id="formIntro">
+            Napište nám stručně, co se ve firmě nebo týmu opakuje.
+            Doporučíme vhodný formát tréninku a ozveme se s návrhem dalšího kroku.
+          </p>
+<ul class="checks">
+<li>Krátká nezávazná konzultace.</li>
+<li>Doporučení podle situace, ne podle předem zvoleného balíčku.</li>
+<li>Možnost programu pro tým, lídra i jednotlivce.</li>
+</ul>
+</div>
+<form class="form-card" id="leadForm" novalidate="">
+<div aria-label="Vyberte oblast" class="form-segment">
+<button class="active" data-segment="companies" type="button">Firma</button>
+<button data-segment="leaders" type="button">Lídr</button>
+<button data-segment="individuals" type="button">Jednotlivec</button>
+</div>
+<input id="segmentInput" name="segment" type="hidden" value="companies"/>
+<div class="form-grid">
+<div class="field">
+<label for="name">Jméno a příjmení *</label>
+<input autocomplete="name" id="name" name="name" required=""/>
+<span class="error" data-error-for="name"></span>
+</div>
+<div class="field">
+<label for="email">Pracovní e-mail *</label>
+<input autocomplete="email" id="email" name="email" required="" type="email"/>
+<span class="error" data-error-for="email"></span>
+</div>
+<div class="field">
+<label for="phone">Telefon</label>
+<input autocomplete="tel" id="phone" name="phone" type="tel"/>
+</div>
+<div class="field dynamic-field visible" data-show="companies leaders">
+<label for="company">Organizace</label>
+<input autocomplete="organization" id="company" name="company"/>
+</div>
+<div class="field field-full dynamic-field visible" data-show="companies">
+<label for="participants">Přibližný počet účastníků</label>
+<select id="participants" name="participants">
+<option value="">Zatím nevím</option>
+<option>Do 8</option>
+<option>9–15</option>
+<option>16–30</option>
+<option>Více než 30</option>
+</select>
+</div>
+<div class="field field-full">
+<label for="situation" id="situationLabel">Jakou situaci potřebujete zvládat lépe? (nepovinné)</label>
+<textarea id="situation" name="situation" placeholder="Například konfliktní klienti, náročné rozhovory manažerů, chyby při časové tísni nebo eskalace v provozu."></textarea>
+</div>
+<div class="field field-full">
+<label class="check">
+<input id="consent" name="consent" required="" type="checkbox"/>
+<span>Souhlasím se zpracováním údajů za účelem vyřízení poptávky. *</span>
+</label>
+<span class="error" data-error-for="consent"></span>
+</div>
+</div>
+<div class="form-note" id="formNote">
+            Odesláním nevzniká objednávka. Nejprve společně ověříme, zda Resilium odpovídá vaší situaci.
+          </div>
+<button class="btn btn-primary btn-block" id="submitLabel" type="submit">Chci doporučit vhodný program</button>
+<div class="success" id="successMessage" role="status">
+            Děkujeme. Formulář je připraven k napojení na CRM nebo e-mailovou automatizaci.
+          </div>
+</form>
+</div>
+</section>
+<section class="section">
+<div class="wrap">
+<div class="section-head">
+<p class="eyebrow">Nejčastější otázky</p>
+<h2>Odborný základ, bezpečnost a reálná očekávání.</h2>
+<p class="lead faq-intro">Stručně a bez zjednodušujících slibů: co Resilium trénuje, z čeho vychází a kde jsou hranice jeho použití.</p>
+</div>
+<details>
+<summary>Co Resilium skutečně trénuje?</summary>
+<p>
+            Resilium není jen školení komunikace ani obecná přednáška o stresu. Propojuje rozpoznání
+            vlastní reakce, práci s pozorností a aktivací těla, rozhodování, komunikaci a konkrétní
+            další krok. Scénáře se vztahují k situacím, které daný člověk, lídr nebo tým skutečně řeší.
+          </p>
+</details>
+<details>
+<summary>Co z odborného základu je podpořeno výzkumem?</summary>
+<p>
+            Výzkum podporuje výchozí mechanismy, se kterými Resilium pracuje: akutní stres může
+            zhoršovat pracovní paměť a kognitivní flexibilitu a ovlivňovat rozhodování. Dopad není
+            u všech lidí ani úkolů stejný. Výzkum stresového nácviku podporuje princip postupné
+            přípravy na výkon pod zátěží; není však přímým ověřením programu Resilium. Resilium je
+            vlastní tréninkový rámec a neprezentujeme jej jako klinicky validovanou léčebnou metodu.
+            <span class="research-links"><strong>Vybrané odborné zdroje:</strong>
+              <a href="https://pubmed.ncbi.nlm.nih.gov/27371161/" rel="noopener noreferrer" target="_blank">Shields, Sazma &amp; Yonelinas (2016)</a>,
+              <a href="https://pubmed.ncbi.nlm.nih.gov/22342781/" rel="noopener noreferrer" target="_blank">Starcke &amp; Brand (2012)</a> a
+              <a href="https://pubmed.ncbi.nlm.nih.gov/9547044/" rel="noopener noreferrer" target="_blank">Saunders et al. (1996)</a>.
+            </span>
+          </p>
+</details>
+<details>
+<summary>Jak je řízená zátěž vedena a je fyzicky náročná?</summary>
+<p>
+            Cílem není boj, šok ani fyzické vyčerpání. Náročnost se zvyšuje postupně, lektor sleduje
+            reakce účastníků a cvičení přizpůsobuje možnostem skupiny. Řízená zátěž je prostředek
+            k rozpoznání a nácviku reakce, nikoli atrakce nebo test odolnosti.
+          </p>
+</details>
+<details>
+<summary>Jak vznikne program pro organizaci?</summary>
+<p>
+            Nejprve popíšete konkrétní situace, cílové role a očekávanou změnu v praxi. Následuje
+            krátká konzultace a návrh scénářů, rozsahu, bezpečnostních pravidel a způsobu vyhodnocení.
+            Teprve poté vzniká konkrétní nabídka.
+          </p>
+</details>
+</div>
+</section>
+<section aria-hidden="true" class="section section-soft" hidden>
+<div class="wrap">
+<div class="section-head">
+<p class="eyebrow">Kde chcete začít?</p>
+<h2>Vyberte cestu, která odpovídá vaší roli.</h2>
+</div>
+<div class="final-choices">
+<article class="choice">
+<h3>V organizaci</h3>
+<p>Popsat situaci v týmu, provozu nebo při kontaktu s klienty.</p>
+<a class="btn btn-light segment-link" data-segment="companies" href="firmy-a-organizace.html">Řešení pro firmy</a>
+</article>
+<article class="choice">
+<h3>Ve své roli lídra</h3>
+<p>Pracovat s rozhodováním, autoritou a reakcí, která ovlivňuje tým.</p>
+<a class="btn btn-light segment-link" data-segment="leaders" href="lideri-a-manazeri.html">Trénink pro lídry</a>
+</article>
+<article class="choice">
+<h3>Ve vlastních reakcích</h3>
+<p>Najít veřejný trénink nebo doporučit vhodnou individuální cestu.</p>
+<a class="btn btn-light segment-link" data-segment="individuals" href="jednotlivci.html">Trénink pro jednotlivce</a>
+</article>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="wrap footer-inner">
+<div class="footer-about"><img alt="Resilium" class="footer-brand" height="56" src="assets/resilium-logo.webp" width="78"/><p>Psychofyzický trénink jednání pod tlakem.</p></div>
+<div><p class="footer-heading">Navigace</p><div class="footer-links"><a href="experiment-pod-tlakem.html">Stresový test</a><a href="mapa-reakce-pod-tlakem.html">Můj profil pod tlakem</a><a href="firmy-a-organizace.html">Firmy a organizace</a><a href="lideri-a-manazeri.html">Lídři a manažeři</a><a href="jednotlivci.html">Jednotlivci</a><a href="situace.html">Kde pomáháme</a><a href="clanky.html">Články</a></div></div>
+<div class="footer-company"><p class="footer-heading">Provozovatel</p><address><strong>Allprosys.cz s.r.o.</strong><br/>Zámostní 1155/27<br/>710 00 Ostrava<br/>IČ: 06365329<br/>DIČ: CZ06365329</address><p class="footer-registry">Zapsaná v obchodním rejstříku vedeném Krajským soudem v Ostravě, oddíl C, vložka 71645.</p></div>
+<div class="footer-contact"><p class="footer-heading">Kontakt a právní informace</p><p><strong>Mgr. Radim Končítek</strong><br/><a href="tel:+420724462744">+420 724 462 744</a><br/><small>Po–Pá 8:00–18:00</small></p><p><strong>Organizační informace</strong><br/><a href="tel:+420774295064">+420 774 295 064</a></p><p><a href="mailto:info@allprosys.cz">info@allprosys.cz</a></p><p><a href="https://www.resilium.cz">www.resilium.cz</a></p><p><a href="https://www.resilium.cz/ochrana-osobnich-udaju">Ochrana osobních údajů</a></p></div>
+</div>
+<div class="wrap footer-legal"><p>© Resilium / Allprosys.cz s.r.o. Všechna práva vyhrazena.</p><p>Informace na webu mají obecný informační charakter. Program Resilium nenahrazuje zdravotní, psychologickou, právní ani bezpečnostní službu poskytovanou v individuálním režimu.</p></div>
+</footer>
+<a aria-label="Veřejný trénink pro jednotlivce – Praha 21. 11. 2026" class="btn btn-primary mobile-cta" href="resilium-trenink-praha-21-11-2026.html">Veřejný trénink 21. 11.</a>
+<script>
+    const segmentData = {
+      companies: {
+        eyebrow: "Firmy a organizace",
+        headline: "Vaši lidé znají správný postup. Dokážou jej použít i pod tlakem?",
+        copy: "Psychofyzický trénink Resilium připravuje zaměstnance a týmy na situace, ve kterých chyba, eskalace nebo nevhodná reakce může ovlivnit klienta, provoz, bezpečnost nebo reputaci organizace.",
+        primary: "Dozvědět se více",
+        detailHref: "firmy-a-organizace.html",
+        secondary: "Prohlédnout oblasti využití",
+        situationsHref: "situace.html#firmy",
+        formHeadline: "Jakou situaci potřebujete ve své organizaci zvládat lépe?",
+        formIntro: "Napište nám stručně, co se ve firmě nebo týmu opakuje. Doporučíme vhodný formát tréninku a ozveme se s návrhem dalšího kroku.",
+        situationLabel: "Jakou situaci potřebujete zvládat lépe? (nepovinné)",
+        placeholder: "Například konfliktní klienti, náročné rozhovory manažerů, chyby při časové tísni nebo eskalace v provozu.",
+        submit: "Chci doporučit vhodný program",
+        note: "Odesláním nevzniká objednávka. Nejprve společně ověříme, zda Resilium odpovídá vaší situaci.",
+        situations: [
+          ["Konfliktní klient", "Deeskalace, hranice a bezpečný způsob ukončení situace."],
+          ["Exponované pozice", "Front office, recepce, služby, školy nebo veřejná správa."],
+          ["Chyby pod tlakem", "Rozhodování, kontrolní postupy a týmová koordinace."],
+          ["Bezpečnost a reputace", "Situace s dopadem na lidi, provoz nebo důvěru."]
+        ]
+      },
+      leaders: {
+        eyebrow: "Lídři a manažeři",
+        headline: "Pod tlakem potřebujete obstát jako lídr i jako člověk.",
+        copy: "Psychofyzický trénink pro lídry, kteří chtějí zachovat vlastní výkon, úsudek a schopnost vést při konfliktu, odporu, nejistotě a náročných rozhodnutích. Větší soulad mezi tím, jak chtějí jednat, a jak skutečně jednají, může přinášet také více vnitřní jistoty, méně následného napětí a větší spokojenost v práci i mimo ni.",
+        primary: "Dozvědět se více",
+        detailHref: "lideri-a-manazeri.html",
+        secondary: "Prohlédnout situace lídrů",
+        situationsHref: "situace.html#lidri",
+        formHeadline: "Ve které situaci chcete jako lídr reagovat jinak nebo jistěji?",
+        formIntro: "Popište krátce situaci, která se ve vaší roli opakuje. Doporučíme individuální nebo firemní formát.",
+        situationLabel: "Kterou situaci chcete jako lídr zvládat lépe? (nepovinné)",
+        placeholder: "Například konflikt v týmu, náročná zpětná vazba, odpor ke změně, tlak na rychlé rozhodnutí nebo vlastní obrannost.",
+        submit: "Chci konzultaci pro lídra",
+        note: "Konzultace pomůže určit, zda dává smysl individuální trénink, skupina lídrů nebo program pro celý tým.",
+        situations: [
+          ["Konflikt v týmu", "Zachovat nadhled, naslouchání a schopnost vést další krok."],
+          ["Náročná zpětná vazba", "Práce s odporem, emocemi a vlastní obranností."],
+          ["Rozhodování v nejistotě", "Více možností i při časové tísni a vysoké odpovědnosti."],
+          ["Tlak shora i zdola", "Reakce lídra se přenáší na jistotu a chování lidí."]
+        ]
+      },
+      individuals: {
+        eyebrow: "Jednotlivci",
+        headline: "Kolikrát jste si už řekli: „Měl jsem reagovat jinak“?",
+        copy: "Ztuhnutí, ústup, prudká reakce, ztráta slov nebo impulzivní jednání mají různé podoby. Psychofyzický trénink vás učí vlastní reakci včas rozpoznat, regulovat a zvolit další krok.",
+        primary: "Dozvědět se více",
+        detailHref: "jednotlivci.html",
+        secondary: "Prohlédnout typické situace",
+        situationsHref: "situace.html#jednotlivci",
+        formHeadline: "V jaké situaci chcete reagovat blíž tomu, jak skutečně chcete?",
+        formIntro: "Napište nám stručně, co se vám opakuje. Doporučíme veřejný trénink nebo jinou vhodnou cestu.",
+        situationLabel: "Kterou situaci chcete zvládat jinak? (nepovinné)",
+        placeholder: "Například kritika, konflikt, ztráta slov, ústup, prudká reakce, prezentace nebo nastavení hranice.",
+        submit: "Chci doporučit vhodný trénink",
+        note: "Poptávka je nezávazná. Podle situace doporučíme veřejný termín nebo vhodný formát.",
+        situations: [
+          ["Ztuhnutí a ústup", "Chcete se ozvat nebo nastavit hranici, ale reakce vás zastaví."],
+          ["Prudká reakce", "Jednáte silněji, než jste chtěli, a uvědomíte si to až potom."],
+          ["Kritika a obrannost", "Vysvětlujete, protiútočíte nebo přestáváte naslouchat."],
+          ["Ztráta slov", "V klidu víte, co říct. V situaci se k tomu nedostanete."]
+        ]
+      }
+    };
+
+    let activeSegment = "companies";
+
+    const panelEyebrow = document.getElementById("segmentEyebrow");
+    const panelHeadline = document.getElementById("segmentHeadline");
+    const panelCopy = document.getElementById("segmentCopy");
+    const panelSituations = document.getElementById("segmentSituations");
+    const panelPrimary = document.querySelector(".segment-primary");
+    const panelSecondary = document.querySelector(".segment-secondary");
+
+    const formHeadline = document.getElementById("formHeadline");
+    const formIntro = document.getElementById("formIntro");
+    const situationLabel = document.getElementById("situationLabel");
+    const situation = document.getElementById("situation");
+    const submitLabel = document.getElementById("submitLabel");
+    const formNote = document.getElementById("formNote");
+    const segmentInput = document.getElementById("segmentInput");
+
+    function renderSituations(items) {
+      panelSituations.innerHTML = items.map(item => `
+        <div class="situation">
+          <strong>${item[0]}</strong>
+          <span>${item[1]}</span>
+        </div>
+      `).join("");
+    }
+
+    function updateDynamicFields(segment) {
+      document.querySelectorAll(".dynamic-field").forEach(field => {
+        const allowed = field.dataset.show.split(" ");
+        field.classList.toggle("visible", allowed.includes(segment));
+      });
+    }
+
+    const segmentSelector = document.querySelector(".segment-selector");
+    const segmentTabs = [...document.querySelectorAll(".segment-tab")];
+    const segmentPanelClose = document.querySelector(".segment-panel-close");
+    const mobileSegmentQuery = window.matchMedia("(max-width: 900px)");
+    let expandedSegment = null;
+
+    function setSegment(segment) {
+      activeSegment = segment;
+      const data = segmentData[segment];
+
+      document.querySelectorAll(".form-segment button").forEach(element => {
+        element.classList.toggle("active", element.dataset.segment === segment);
+      });
+
+      panelEyebrow.textContent = data.eyebrow;
+      panelHeadline.textContent = data.headline;
+      panelCopy.textContent = data.copy;
+      panelPrimary.textContent = data.primary;
+      panelPrimary.href = data.detailHref;
+      panelSecondary.textContent = data.secondary;
+      panelSecondary.href = data.situationsHref;
+      renderSituations(data.situations);
+
+      formHeadline.textContent = data.formHeadline;
+      formIntro.textContent = data.formIntro;
+      situationLabel.textContent = data.situationLabel;
+      situation.placeholder = data.placeholder;
+      submitLabel.textContent = data.submit;
+      formNote.textContent = data.note;
+      segmentInput.value = segment;
+      updateDynamicFields(segment);
+    }
+
+    function placeSegmentPanel(control) {
+      if (mobileSegmentQuery.matches) {
+        control.insertAdjacentElement("afterend", segmentPanel);
+      } else {
+        segmentSelector.insertAdjacentElement("afterend", segmentPanel);
+      }
+    }
+
+    function closeSegmentPanel(restoreFocus = false) {
+      const previousControl = segmentTabs.find(tab => tab.dataset.segment === expandedSegment);
+      expandedSegment = null;
+      segmentPanel.hidden = true;
+      segmentTabs.forEach(tab => {
+        tab.classList.remove("active");
+        tab.setAttribute("aria-expanded", "false");
+        tab.querySelector(".segment-action-label").textContent = "Jak Resilium pomáhá";
+        tab.querySelector(".segment-action-icon").textContent = "↓";
+      });
+      segmentSelector.insertAdjacentElement("afterend", segmentPanel);
+      if (restoreFocus && previousControl) previousControl.focus();
+    }
+
+    function toggleSegmentPanel(control) {
+      const segment = control.dataset.segment;
+      if (expandedSegment === segment && !segmentPanel.hidden) {
+        closeSegmentPanel(true);
+        return;
+      }
+
+      setSegment(segment);
+      expandedSegment = segment;
+      segmentTabs.forEach(tab => {
+        const isExpanded = tab === control;
+        tab.classList.toggle("active", isExpanded);
+        tab.setAttribute("aria-expanded", String(isExpanded));
+        tab.querySelector(".segment-action-label").textContent = isExpanded ? "Skrýt informace" : "Jak Resilium pomáhá";
+        tab.querySelector(".segment-action-icon").textContent = isExpanded ? "↑" : "↓";
+      });
+      placeSegmentPanel(control);
+      segmentPanel.hidden = false;
+
+      if (mobileSegmentQuery.matches) {
+        requestAnimationFrame(() => segmentPanel.scrollIntoView({ behavior: "smooth", block: "nearest" }));
+      }
+    }
+
+    segmentTabs.forEach(button => {
+      button.addEventListener("click", () => toggleSegmentPanel(button));
+    });
+
+    document.querySelectorAll(".form-segment button").forEach(button => {
+      button.addEventListener("click", () => setSegment(button.dataset.segment));
+    });
+
+    segmentPanelClose.addEventListener("click", () => closeSegmentPanel(true));
+
+    const repositionSegmentPanel = () => {
+      if (!expandedSegment || segmentPanel.hidden) return;
+      const control = segmentTabs.find(tab => tab.dataset.segment === expandedSegment);
+      if (control) placeSegmentPanel(control);
+    };
+
+    if (mobileSegmentQuery.addEventListener) {
+      mobileSegmentQuery.addEventListener("change", repositionSegmentPanel);
+    } else {
+      mobileSegmentQuery.addListener(repositionSegmentPanel);
+    }
+
+
+    const form = document.getElementById("leadForm");
+    const successMessage = document.getElementById("successMessage");
+
+    function showError(id, message) {
+      const node = document.querySelector(`[data-error-for="${id}"]`);
+      if (node) node.textContent = message;
+    }
+
+    function clearErrors() {
+      document.querySelectorAll(".error").forEach(node => node.textContent = "");
+    }
+
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+      clearErrors();
+      successMessage.style.display = "none";
+
+      let valid = true;
+      const name = document.getElementById("name");
+      const email = document.getElementById("email");
+      const consent = document.getElementById("consent");
+
+      if (!name.value.trim()) {
+        showError("name", "Vyplňte prosím jméno.");
+        valid = false;
+      }
+
+      if (!email.value.trim()) {
+        showError("email", "Vyplňte prosím e-mail.");
+        valid = false;
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+        showError("email", "Zadejte platnou e-mailovou adresu.");
+        valid = false;
+      }
+
+      if (!consent.checked) {
+        showError("consent", "Pro odeslání je potřeba souhlas.");
+        valid = false;
+      }
+
+      if (!valid) return;
+
+      /*
+        PRODUKČNÍ NAPOJENÍ:
+        1. Odeslat data do CRM / Make / Zapier / vlastního API.
+        2. Uložit zdroj leadu a vybraný segment.
+        3. Odeslat segmentově odlišný potvrzovací e-mail.
+        4. Přidělit follow-up obchodníkovi nebo lektorovi.
+        5. Měřit konverze podle segmentu a CTA.
+      */
+
+      successMessage.style.display = "block";
+      successMessage.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+
+    setSegment("companies");
+  </script>
+<script src="assets/resilium.js?v=20260801-nav6"></script>
+</body>
+</html>

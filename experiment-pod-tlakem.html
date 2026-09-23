@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stresový test | Resilium</title>
+  <meta name="description" content="Krátký interaktivní experiment porovná vaši přesnost a rychlost v klidném kole a pod rostoucím časovým tlakem. Bez registrace a bez hodnocení odolnosti.">
+  <meta name="theme-color" content="#252e35">
+  <meta property="og:title" content="Co udělá 90 sekund tlaku s vaší přesností?">
+  <meta property="og:description" content="Dvě kola. Stejný typ rozhodnutí. Mění se čas a tlak. Vyzkoušejte si, co se změní právě u vás.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="cs_CZ">
+  <meta property="og:image" content="/assets/experiment-tlak-og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Stresový test | Resilium">
+  <meta name="twitter:description" content="Krátký zážitkový experiment přesnosti, rychlosti a signálů tlaku.">
+  <meta name="twitter:image" content="/assets/experiment-tlak-og.png">
+  <link rel="icon" href="assets/resilium-logo.webp" type="image/webp">
+  <link rel="stylesheet" href="assets/resilium.css?v=20260906-nav1">
+  <link rel="stylesheet" href="assets/experiment-tlak.css?v=20260907-focus2">
+<link href="assets/v3-unified.css?v=20260804-hero1" rel="stylesheet">
+</head>
+<body class="experiment-page">
+  <nav class="nav xp-nav" aria-label="Hlavní navigace">
+    <div class="wrap nav-inner">
+      <a class="logo" href="index.html" aria-label="Resilium – úvodní stránka">
+        <img src="assets/resilium-logo.webp" width="68" height="48" alt="Resilium">
+      </a>
+      <button class="menu-toggle" type="button" aria-controls="mainNav" aria-expanded="false" aria-label="Otevřít hlavní menu"><span></span></button>
+      <div class="nav-links" id="mainNav">
+        <a href="index.html#prinos-treninku">Kdy vám trénink pomůže</a>
+        <a href="index.html#metoda">Jak trénink probíhá</a>
+        <a href="clanky.html">Články a poznatky</a>
+        <a aria-current="page" href="experiment-pod-tlakem.html">Stresový test · 3 min</a>
+        <a href="index.html#o-nas">O Resiliu</a>
+        <a aria-label="Veřejný trénink pro jednotlivce – Praha 21. 11. 2026" class="btn btn-primary preserve-campaign" href="resilium-trenink-praha-21-11-2026.html">Veřejný trénink 21. 11.</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="xp-hero" id="top">
+    <div class="xp-hero-grid wrap">
+      <div class="xp-hero-copy">
+        <p class="eyebrow">Stresový test · Resilium</p>
+        <h1>Co se s vámi děje pod tlakem?</h1>
+        <p class="lead">Vyzkoušejte 90sekundový experiment a porovnejte, jak se vaše přesnost a rozhodování změní pod časovým tlakem.</p>
+        <div class="xp-hero-actions">
+          <a class="btn btn-primary preserve-campaign" href="#experiment">Spustit stresový test</a>
+        </div>
+      </div>
+      <div class="xp-hero-visual" aria-hidden="true">
+        <div class="xp-orbit xp-orbit-one"></div>
+        <div class="xp-orbit xp-orbit-two"></div>
+        <div class="xp-pressure-dial">
+          <span class="xp-dial-kicker">ČAS NA VOLBU</span>
+          <strong>6.5</strong>
+          <small>→ 1.5 s</small>
+        </div>
+        <div class="xp-hero-signal xp-signal-one"><i></i> dech</div>
+        <div class="xp-hero-signal xp-signal-two"><i></i> tempo</div>
+        <div class="xp-hero-signal xp-signal-three"><i></i> pozornost</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="xp-experiment-section" id="experiment" aria-labelledby="experimentTitle">
+      <div class="wrap">
+        <div class="xp-shell">
+          <div class="xp-shell-head">
+            <div>
+              <p class="eyebrow">Váš experiment</p>
+              <h2 id="experimentTitle">Zjistěte, jak časový tlak ovlivní vaši přesnost a rozhodování.</h2>
+            </div>
+            <div class="xp-privacy"><span aria-hidden="true">●</span> Výsledky se nikam neodesílají</div>
+          </div>
+
+          <div class="xp-progress" aria-label="Průběh experimentu">
+            <span class="active" data-progress-step="intro"><b>01</b> Úvod</span>
+            <i></i>
+            <span data-progress-step="calm"><b>02</b> Klid</span>
+            <i></i>
+            <span data-progress-step="pressure"><b>03</b> Tlak</span>
+            <i></i>
+            <span data-progress-step="result"><b>04</b> Výsledek</span>
+          </div>
+
+          <section class="xp-stage xp-stage-intro" data-stage="intro" aria-labelledby="introTitle">
+            <div class="xp-stage-copy">
+              <p class="xp-stage-count">Než začnete</p>
+              <h3 id="introTitle" tabindex="-1">Za tři minuty poznejte svou reakci pod tlakem.</h3>
+              <p>V každé úloze vyberete číslo podle jednoduchého pravidla. Porovnáme dvě krátká kola. Ve druhém se bude zkracovat čas a přibude pocit naléhavosti.</p>
+            </div>
+            <div class="xp-start-card">
+              <span class="xp-card-label">Připravte si</span>
+              <strong>Stresový test. Jak na tom jste?</strong>
+              <p>Odpovídat můžete kliknutím, dotykem nebo klávesami 1–4.</p>
+              <button class="btn btn-primary" id="beginExperiment" type="button">Jdu do toho</button>
+            </div>
+          </section>
+
+          <section class="xp-stage xp-stage-checkin" data-stage="checkin" aria-labelledby="checkinTitle" hidden>
+            <div class="xp-stage-copy">
+              <p class="xp-stage-count">Výchozí bod · 10 sekund</p>
+              <h3 id="checkinTitle" tabindex="-1">Jaký tlak vnímáte právě teď?</h3>
+              <p>Neexistuje správná odpověď. Číslo použijeme jen pro srovnání s pocitem po druhém kole.</p>
+            </div>
+            <div class="xp-slider-card">
+              <div class="xp-slider-value"><output id="prePressureOutput" for="prePressure">2</output><span>/ 10</span></div>
+              <input id="prePressure" type="range" min="0" max="10" step="1" value="2" aria-label="Míra tlaku právě teď, od 0 do 10">
+              <div class="xp-slider-ends"><span>žádný tlak</span><span>velmi silný tlak</span></div>
+              <button class="btn btn-primary" id="saveCheckin" type="button">Pokračovat</button>
+            </div>
+          </section>
+
+          <section class="xp-stage xp-stage-brief" data-stage="brief" aria-labelledby="briefTitle" hidden>
+            <div class="xp-stage-copy">
+              <p class="xp-stage-count">Pravidla hry</p>
+              <h3 id="briefTitle" tabindex="-1">Čtěte pravidlo. Potom vyberte číslo.</h3>
+              <p>Budete hledat nejmenší, největší, jediné liché nebo jediné sudé číslo. Správnost během kola neuvidíte, aby vás předchozí volba neovlivnila.</p>
+            </div>
+            <div class="xp-example" aria-label="Ukázková úloha">
+              <span>Vyberte <strong>NEJMENŠÍ ČÍSLO</strong></span>
+              <div><b>42</b><b>17</b><b>68</b><b class="correct">9</b></div>
+              <small>V prvním kole máte na každou volbu 6,5 sekundy.</small>
+              <button class="btn btn-primary" id="startCalm" type="button">Spustit klidné kolo</button>
+            </div>
+          </section>
+
+          <section class="xp-stage xp-stage-play" data-stage="play" aria-labelledby="taskPrompt" hidden>
+            <div class="xp-play-top">
+              <div>
+                <span class="xp-round-label" id="roundLabel">Kolo 1 · Klid</span>
+                <span class="xp-task-count" id="taskCount">Úloha 1 z 8</span>
+              </div>
+              <button class="xp-stop" id="stopExperiment" type="button">Ukončit</button>
+            </div>
+            <div class="xp-timer" role="progressbar" aria-label="Zbývající čas" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
+              <span id="timerBar"></span>
+            </div>
+            <div class="xp-time-copy"><span id="timeMessage">Máte dost času na přečtení pravidla.</span><strong id="timeLeft">6,5 s</strong></div>
+            <div class="xp-task-area">
+              <p class="xp-task-kicker">Vyberte</p>
+              <h3 id="taskPrompt" tabindex="-1">NEJMENŠÍ ČÍSLO</h3>
+              <div class="xp-answers" id="answers" aria-label="Možnosti odpovědi"></div>
+              <p class="xp-key-hint">Klávesnice: 1 · 2 · 3 · 4</p>
+            </div>
+            <div class="xp-body-nudge" id="bodyNudge" aria-live="polite"></div>
+            <div class="xp-feedback" id="taskFeedback" role="status" aria-live="polite"></div>
+          </section>
+
+          <section class="xp-stage xp-stage-intermission" data-stage="intermission" aria-labelledby="intermissionTitle" hidden>
+            <div class="xp-stage-copy">
+              <p class="xp-stage-count">Kolo 1 dokončeno</p>
+              <h3 id="intermissionTitle" tabindex="-1">Teď přijde časový tlak.</h3>
+              <p>Typ hlavních úloh zůstává stejný. Čas začne na 3,6 sekundy, zkrátí se až na 1,5 sekundy a současně si budete držet v paměti krátký kód.</p>
+              <div class="xp-watch-list">
+                <strong>Nesnažte se nic měnit. Jen si periferně všimněte:</strong>
+                <span>Co se děje s dechem?</span>
+                <span>Přitlačují čelist nebo ramena?</span>
+                <span>Objeví se chuť kliknout dřív, než dočtete?</span>
+              </div>
+            </div>
+            <div class="xp-round-summary">
+              <span>Vedlejší úkol</span>
+              <p>Zapamatujte si tento kód. Po kole se na něj zeptáme.</p>
+              <strong class="xp-memory-code" id="memoryCode">7 — 3</strong>
+              <small id="calmRecorded">První kolo: 8 rozhodnutí zaznamenáno</small>
+              <button class="btn btn-primary" id="startPressure" type="button">Kód mám · spustit zátěž</button>
+              <button class="xp-text-button" id="leaveBeforePressure" type="button">Raději skončit</button>
+            </div>
+          </section>
+
+          <section class="xp-stage xp-stage-postcheck" data-stage="postcheck" aria-labelledby="postcheckTitle" hidden>
+            <div class="xp-stage-copy">
+              <p class="xp-stage-count">Než uvidíte skóre</p>
+              <h3 id="postcheckTitle" tabindex="-1">Co jste během tlaku zaznamenali?</h3>
+              <p>Vyberte vše, čeho jste si všimli. Signál nemusí být dramatický — často jde jen o malou změnu.</p>
+              <fieldset class="xp-symptoms">
+                <legend class="sr-only">Zaznamenané signály během druhého kola</legend>
+                <label><input type="checkbox" value="breath"><span>Kratší dech nebo zadržení dechu</span></label>
+                <label><input type="checkbox" value="muscles"><span>Čelist, ramena nebo ruce v napětí</span></label>
+                <label><input type="checkbox" value="heat"><span>Silnější tep, teplo nebo vlhké dlaně</span></label>
+                <label><input type="checkbox" value="stomach"><span>Stažení v žaludku, hrudi nebo hrdle</span></label>
+                <label><input type="checkbox" value="rush"><span>Potřeba zrychlit nebo kliknout hned</span></label>
+                <label><input type="checkbox" value="focus"><span>Zúžená pozornost nebo ztráta pravidla</span></label>
+                <label><input type="checkbox" value="freeze"><span>Zaseknutí, prázdno nebo nehybnost</span></label>
+                <label><input type="checkbox" value="none"><span>Nic výrazného jsem nezaznamenal/a</span></label>
+              </fieldset>
+              <div class="xp-memory-recall">
+                <label for="memoryRecall">Jaký byl dvoumístný kód?</label>
+                <input id="memoryRecall" type="text" inputmode="numeric" autocomplete="off" maxlength="2" pattern="[0-9]{2}" placeholder="••" aria-describedby="memoryRecallHint">
+                <small id="memoryRecallHint">Zadejte obě číslice bez mezery. Pokud si nevzpomínáte, pole nechte prázdné.</small>
+              </div>
+            </div>
+            <div class="xp-slider-card">
+              <p>Jaký tlak vnímáte teď?</p>
+              <div class="xp-slider-value"><output id="postPressureOutput" for="postPressure">5</output><span>/ 10</span></div>
+              <input id="postPressure" type="range" min="0" max="10" step="1" value="5" aria-label="Míra tlaku po druhém kole, od 0 do 10">
+              <div class="xp-slider-ends"><span>žádný tlak</span><span>velmi silný tlak</span></div>
+              <button class="btn btn-primary" id="showResult" type="button">Ukázat můj výsledek</button>
+            </div>
+          </section>
+
+          <section class="xp-stage xp-stage-results" data-stage="results" aria-labelledby="resultsTitle" hidden>
+            <div class="xp-results-head">
+              <p class="xp-stage-count">Váš výsledek</p>
+              <h3 id="resultsTitle" tabindex="-1">Co se změnilo mezi klidem a tlakem?</h3>
+              <p class="xp-result-lead" id="resultLead"></p>
+            </div>
+
+            <div class="xp-comparison" aria-label="Porovnání přesnosti">
+              <div class="xp-chart-row">
+                <div><span>Klidné kolo</span><strong id="calmAccuracyLabel">0 %</strong></div>
+                <div class="xp-chart-track"><span id="calmAccuracyBar"></span></div>
+              </div>
+              <div class="xp-chart-row pressure">
+                <div><span>Kolo pod tlakem</span><strong id="pressureAccuracyLabel">0 %</strong></div>
+                <div class="xp-chart-track"><span id="pressureAccuracyBar"></span></div>
+              </div>
+            </div>
+
+            <div class="xp-metrics">
+              <article>
+                <span>Přesnost</span>
+                <strong id="accuracyChange">—</strong>
+                <small>změna v procentních bodech</small>
+              </article>
+              <article>
+                <span>Průměrná volba</span>
+                <strong id="speedChange">—</strong>
+                <small>změna času odpovědi</small>
+              </article>
+              <article>
+                <span>Vnímaný tlak</span>
+                <strong id="pressureChange">—</strong>
+                <small>změna na škále 0–10</small>
+              </article>
+              <article>
+                <span>Paměťový kód</span>
+                <strong id="memoryResult">—</strong>
+                <small>vedlejší úkol pod tlakem</small>
+              </article>
+            </div>
+
+            <div class="xp-insight-grid">
+              <article class="xp-insight-primary">
+                <p class="eyebrow">Vaše časné signály</p>
+                <h4 id="signalTitle">Co stálo za pozornost</h4>
+                <p id="signalSummary"></p>
+              </article>
+              <article class="xp-insight-note">
+                <p class="eyebrow">Důležitá interpretace</p>
+                <p id="interpretation"></p>
+              </article>
+            </div>
+
+            <div class="xp-result-actions">
+              <button class="btn btn-primary" id="restartExperiment" type="button">Zkusit experiment znovu</button>
+              <a class="btn btn-secondary preserve-campaign" href="mapa-reakce-pod-tlakem.html">Zmapovat svou reakci</a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="xp-method-section" id="jak-to-funguje" aria-labelledby="methodTitle">
+      <div class="wrap">
+        <div class="xp-method-head">
+          <p class="eyebrow">Co experiment ukazuje — a co ne</p>
+          <h2 id="methodTitle">Zážitek není laboratorní důkaz. Může ale odhalit okamžik změny.</h2>
+          <p class="lead">Akutní tlak může ovlivnit pozornost, pracovní paměť, flexibilitu rozhodování i kontrolu impulzu. U každého člověka a v každé situaci se ale projevuje jinak.</p>
+        </div>
+        <div class="xp-method-grid">
+          <article>
+            <span>01</span>
+            <h3>Srovnává stejné dovednosti</h3>
+            <p>Obě kola používají stejná čtyři pravidla a podobně obtížná čísla. Ve druhém kole se zkrátí čas a přibude jednoduchý paměťový úkol.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Spojuje výkon s všímavostí</h3>
+            <p>Vedle správnosti sledujete i dech, svalové napětí, zrychlení, zúžení pozornosti nebo ztuhnutí.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Nehodnotí člověka</h3>
+            <p>Výsledek neříká, jak „odolní“ jste. Zachycuje jen to, co se stalo v jednom krátkém pokusu na konkrétním zařízení.</p>
+          </article>
+        </div>
+        <details class="xp-evidence">
+          <summary>Odborný kontext a zdroje</summary>
+          <div class="xp-evidence-body">
+            <p>Tento experiment je edukační, nikoli diagnostický. Téma vychází z výzkumu vlivu akutního stresu na pozornost a rozhodování; uvedené studie však neověřují tento konkrétní webový test.</p>
+            <div class="xp-evidence-links">
+              <a href="https://pubmed.ncbi.nlm.nih.gov/27371161/" target="_blank" rel="noopener noreferrer">Shields, Sazma &amp; Yonelinas (2016)</a>
+              <a href="https://pubmed.ncbi.nlm.nih.gov/22342781/" target="_blank" rel="noopener noreferrer">Starcke &amp; Brand (2012)</a>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="xp-closing" aria-labelledby="closingTitle">
+      <div class="wrap xp-closing-inner">
+        <div>
+          <p class="eyebrow">Od všimnutí k volbě</p>
+          <h2 id="closingTitle">Nejdůležitější není chyba. Je to okamžik těsně před ní.</h2>
+          <p>Když dokážete zachytit první změnu v dechu, těle, pozornosti nebo tempu, vzniká prostor zvolit další krok — a právě to lze trénovat.</p>
+        </div>
+        <div class="xp-closing-actions">
+          <a class="btn btn-primary preserve-campaign" href="resilium-trenink-praha-21-11-2026.html">Vyzkoušet řízený trénink</a>
+          <a class="xp-text-link preserve-campaign" href="jednotlivci.html">Jak Resilium pracuje <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div class="footer-about"><img class="footer-brand" src="assets/resilium-logo.webp" width="78" height="56" alt="Resilium"><p>Psychofyzický trénink jednání pod tlakem.</p></div>
+      <div><p class="footer-heading">Navigace</p><div class="footer-links"><a href="index.html">Úvod</a><a href="experiment-pod-tlakem.html">Stresový test</a><a href="mapa-reakce-pod-tlakem.html">Můj profil pod tlakem</a><a href="jednotlivci.html">Jednotlivci</a><a href="clanky.html">Články</a></div></div>
+      <div class="footer-company"><p class="footer-heading">Provozovatel</p><address><strong>Allprosys.cz s.r.o.</strong><br>Zámostní 1155/27<br>710 00 Ostrava<br>IČ: 06365329<br>DIČ: CZ06365329</address><p class="footer-registry">Zapsaná v obchodním rejstříku vedeném Krajským soudem v Ostravě, oddíl C, vložka 71645.</p></div>
+      <div class="footer-contact"><p class="footer-heading">Kontakt a právní informace</p><p><strong>Mgr. Radim Končítek</strong><br><a href="tel:+420724462744">+420 724 462 744</a><br><small>Po–Pá 8:00–18:00</small></p><p><strong>Organizační informace</strong><br><a href="tel:+420774295064">+420 774 295 064</a></p><p><a href="mailto:info@allprosys.cz">info@allprosys.cz</a></p><p><a href="https://www.resilium.cz">www.resilium.cz</a></p><p><a href="https://www.resilium.cz/ochrana-osobnich-udaju">Ochrana osobních údajů</a></p></div>
+    </div>
+    <div class="wrap footer-legal"><p>© Resilium / Allprosys.cz s.r.o. Všechna práva vyhrazena.</p><p>Experiment je edukační zážitek. Nenahrazuje psychologickou diagnostiku, psychoterapii ani zdravotní péči.</p></div>
+  </footer>
+  <a aria-label="Veřejný trénink pro jednotlivce – Praha 21. 11. 2026" class="btn btn-primary mobile-cta" href="resilium-trenink-praha-21-11-2026.html">Veřejný trénink 21. 11.</a>
+
+  <script src="assets/resilium.js?v=20260801-nav6"></script>
+  <script src="assets/experiment-tlak.js?v=1"></script>
+</body>
+</html>
