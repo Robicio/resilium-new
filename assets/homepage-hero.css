@@ -1,0 +1,124 @@
+/* Homepage portrait only: preserve the shared hero type scale on other pages. */
+.home-page .hero--portrait {
+  min-height: 0;
+  padding: 166px 0 72px;
+}
+
+.home-page .hero--portrait .hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(32px, 4vw, 72px);
+}
+
+.home-page .hero--portrait .hero-copy {
+  min-width: 0;
+}
+
+.home-page .hero--portrait .hero-copy > .eyebrow,
+.home-page .hero--portrait .hero-copy > h1,
+.home-page .hero--portrait .hero-copy > .lead {
+  max-width: none;
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.home-page .hero--portrait .hero-proof {
+  margin-bottom: 0;
+  gap: 10px 20px;
+}
+
+.home-page .hero--portrait .hero-event-note {
+  margin: -10px 0 22px;
+  color: var(--brand-soft);
+  font-weight: 700;
+}
+
+.home-page .hero-portrait {
+  position: relative;
+  isolation: isolate;
+  margin: 0;
+  aspect-ratio: 4 / 5;
+  width: 100%;
+  max-height: 620px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .2);
+  border-radius: 120px 28px 28px 28px;
+  background: #a7a497;
+  box-shadow: 0 24px 64px rgba(20, 29, 34, .2);
+}
+
+.home-page .hero-portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 52% center;
+}
+
+.home-page .hero-portrait::after {
+  content: "";
+  position: absolute;
+  inset: 50% 0 0;
+  z-index: 1;
+  background: linear-gradient(transparent, rgba(29, 38, 43, .92));
+  pointer-events: none;
+}
+
+.home-page .hero-portrait figcaption {
+  position: absolute;
+  z-index: 2;
+  left: 28px;
+  right: 24px;
+  bottom: 28px;
+  padding-left: 14px;
+  border-left: 3px solid var(--resilium-orange, #ff8122);
+  color: #fff;
+  text-align: left;
+  line-height: 1.45;
+}
+
+.home-page .hero-portrait figcaption strong,
+.home-page .hero-portrait figcaption span {
+  display: block;
+}
+
+.home-page .hero-portrait figcaption strong {
+  font-size: 1.25rem;
+}
+
+.home-page .hero-portrait figcaption span {
+  margin-top: 4px;
+  font-size: .9rem;
+  color: #e4e7e8;
+}
+
+/* Stack at the existing tablet breakpoint; keep the primary actions before
+   the photo so the portrait does not delay the mobile conversion path. */
+@media (max-width: 960px) {
+  .home-page .hero--portrait {
+    padding: 140px 0 48px;
+  }
+
+  .home-page .hero--portrait .hero-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .home-page .hero-portrait {
+    aspect-ratio: 4 / 3;
+    max-height: 440px;
+    border-radius: 72px 24px 24px 24px;
+  }
+
+  .home-page .hero-portrait img {
+    object-position: 52% 18%;
+  }
+
+  .home-page .hero-portrait figcaption {
+    left: 22px;
+    right: 20px;
+    bottom: 22px;
+  }
+}

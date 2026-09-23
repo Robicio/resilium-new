@@ -1,0 +1,1026 @@
+/* Homepage information architecture and mobile reading rhythm.
+   The source copy stays intact. Repeated audience sections are hidden in HTML,
+   insights are separated from the offer and dense groups remain progressively
+   disclosed on smaller screens. */
+
+.home-page {
+  background: #f7f7f5;
+}
+
+.home-page .hero h1 {
+  max-width: 1120px;
+  font-size: clamp(2.95rem, 5.2vw, 4.75rem);
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.home-page .hero-subheadline {
+  max-width: 1040px;
+  margin: 0 0 26px;
+  color: #f2f4f5;
+  font-size: clamp(1.65rem, 2.45vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.14;
+  text-wrap: balance;
+}
+
+.home-page .hero-subheadline span {
+  color: var(--brand-soft);
+}
+
+.home-page .section-head,
+.home-page .audience-navigation-head {
+  width: min(100%, 1160px);
+  max-width: 1160px;
+}
+
+.home-page .section-head h2,
+.home-page .audience-navigation-head h2,
+.home-page .model-wrap > div:first-child h2,
+.home-page .method-layout > div:first-child h2,
+.home-page .response-contrast-copy h2,
+.home-page .mentor-copy h2,
+.home-page .lead-layout > div:first-child h2,
+.home-page .map-launch-copy h2 {
+  width: 100%;
+  max-width: 1120px;
+  font-size: clamp(2.25rem, 4.35vw, 3.8rem);
+  line-height: 1.06;
+  text-wrap: balance;
+}
+
+.home-page .section-head,
+.home-page .section-head h2,
+.home-page .audience-navigation-head,
+.home-page .audience-navigation-head h2,
+.home-page .model-wrap > div:first-child > .eyebrow,
+.home-page .model-wrap > div:first-child > h2,
+.home-page .method-layout > div:first-child > .eyebrow,
+.home-page .method-layout > div:first-child > h2,
+.home-page .response-contrast-copy > .eyebrow,
+.home-page .response-contrast-copy > h2,
+.home-page .mentor-copy > .eyebrow,
+.home-page .mentor-copy > h2,
+.home-page .lead-layout > div:first-child > .eyebrow,
+.home-page .lead-layout > div:first-child > h2,
+.home-page .map-launch-copy > .map-launch-kicker,
+.home-page .map-launch-copy > h2 {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.home-page .section-head,
+.home-page .audience-navigation-head {
+  background: transparent;
+  box-shadow: none;
+}
+
+.home-page .section-head::before,
+.home-page .section-head::after,
+.home-page .audience-navigation-head::before,
+.home-page .audience-navigation-head::after {
+  display: none;
+}
+
+.home-page main > .section:not(.section-dark):not(.lead-section) {
+  border-top: 0;
+}
+
+.home-page .home-insight-start,
+.home-page .home-offer-start,
+.home-page .home-trust-start {
+  position: relative;
+  padding-top: clamp(112px, 10vw, 156px);
+}
+
+.home-page .home-insight-start::before,
+.home-page .home-offer-start::before,
+.home-page .home-trust-start::before {
+  position: absolute;
+  top: clamp(48px, 4.5vw, 70px);
+  left: 50%;
+  width: min(1240px, calc(100% - 64px));
+  height: 1px;
+  content: "";
+  background: rgba(42, 55, 63, 0.14);
+  transform: translateX(-50%);
+}
+
+.home-page .home-offer-start {
+  background: #f1f2f0;
+}
+
+.home-page .home-trust-start {
+  background: #f1f2f0;
+}
+
+.home-page .map-launch {
+  padding-top: clamp(72px, 7vw, 106px);
+  padding-bottom: clamp(72px, 7vw, 106px);
+  background: #f7f7f5;
+}
+
+.home-page .card,
+.home-page .program-card,
+.home-page .choice,
+.home-page details {
+  border-color: rgba(42, 55, 63, 0.12);
+  box-shadow: 0 14px 34px rgba(34, 45, 52, 0.06);
+}
+
+.mobile-disclosure-toggle,
+.mobile-panel-toggle {
+  display: none;
+}
+
+.home-page .mobile-cta {
+  display: none !important;
+}
+
+@media (max-width: 960px) {
+  .home-page .hero h1 {
+    font-size: clamp(2.65rem, 8.4vw, 4rem);
+  }
+
+  .home-page .hero-subheadline {
+    font-size: clamp(1.55rem, 4.8vw, 2.15rem);
+  }
+
+  .home-page .section-head h2,
+  .home-page .audience-navigation-head h2,
+  .home-page .model-wrap > div:first-child h2,
+  .home-page .method-layout > div:first-child h2,
+  .home-page .response-contrast-copy h2,
+  .home-page .mentor-copy h2,
+  .home-page .lead-layout > div:first-child h2,
+  .home-page .map-launch-copy h2 {
+    font-size: clamp(2.15rem, 6.2vw, 3.25rem);
+  }
+}
+
+@media (max-width: 720px) {
+  .home-page {
+    background: #f3f4f2;
+  }
+
+  .home-page .hero h1 {
+    font-size: clamp(2.35rem, 10.8vw, 3.15rem);
+    line-height: 1.01;
+  }
+
+  .home-page .hero-subheadline {
+    margin-bottom: 22px;
+    font-size: clamp(1.5rem, 7vw, 1.9rem);
+    line-height: 1.16;
+    text-wrap: pretty;
+  }
+
+  .home-page .audience-navigation,
+  .home-page .map-launch {
+    background: #f3f4f2;
+  }
+
+  .home-page .section {
+    padding-top: 68px;
+    padding-bottom: 68px;
+  }
+
+  .home-page .home-insight-start,
+  .home-page .home-offer-start,
+  .home-page .home-trust-start {
+    padding-top: 94px;
+  }
+
+  .home-page .home-insight-start::before,
+  .home-page .home-offer-start::before,
+  .home-page .home-trust-start::before {
+    top: 42px;
+    width: calc(100% - 32px);
+  }
+
+  .home-page .section-head,
+  .home-page .audience-navigation-head {
+    margin-bottom: 30px;
+  }
+
+  .home-page .section-head h2,
+  .home-page .audience-navigation-head h2,
+  .home-page .model-wrap > div:first-child h2,
+  .home-page .method-layout > div:first-child h2,
+  .home-page .response-contrast-copy h2,
+  .home-page .mentor-copy h2,
+  .home-page .lead-layout > div:first-child h2,
+  .home-page .map-launch-copy h2 {
+    max-width: none;
+    font-size: clamp(2rem, 9.2vw, 2.55rem);
+    line-height: 1.06;
+  }
+
+  .home-page .section-head .lead,
+  .home-page .model-wrap > div:first-child .lead,
+  .home-page .method-layout > div:first-child .lead,
+  .home-page .response-contrast-copy .lead,
+  .home-page .mentor-copy p,
+  .home-page .lead-layout > div:first-child p,
+  .home-page .map-launch-copy p:not(.map-launch-kicker) {
+    text-align: left;
+  }
+
+  .home-page .problem-grid,
+  .home-page .benefit-grid,
+  .home-page .use-grid,
+  .home-page .programs-grid,
+  .home-page .evidence-grid,
+  .home-page .final-choices {
+    gap: 14px;
+  }
+
+  .home-page .card,
+  .home-page .program-card,
+  .home-page .choice {
+    padding: 22px;
+    border-radius: 18px;
+  }
+
+  .home-page .model,
+  .home-page .method-steps {
+    gap: 10px;
+  }
+
+  .home-page .response-model-section .model-step,
+  .home-page .method-step {
+    min-height: 0;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .home-page [data-mobile-disclosure].mobile-disclosure-ready:not(.mobile-expanded) > :nth-child(n + 4) {
+    display: none !important;
+  }
+
+  .home-page .mobile-disclosure-toggle,
+  .home-page .mobile-panel-toggle {
+    width: 100%;
+    min-height: 50px;
+    margin-top: 16px;
+    padding: 12px 18px;
+    border: 1px solid rgba(42, 55, 63, 0.18);
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--ink);
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 750;
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow: 0 10px 24px rgba(34, 45, 52, 0.06);
+    cursor: pointer;
+  }
+
+  .home-page .mobile-disclosure-toggle:hover,
+  .home-page .mobile-panel-toggle:hover {
+    border-color: rgba(244, 133, 44, 0.62);
+    background: var(--white);
+  }
+
+  .home-page .mobile-panel-ready:not(.mobile-expanded) {
+    display: none;
+  }
+
+  .home-page .mobile-panel-toggle {
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+
+  .home-page main > .mobile-panel-toggle {
+    width: calc(100% - 32px);
+    margin: 28px auto;
+  }
+
+  .home-page .response-contrast-layout,
+  .home-page .map-launch-inner {
+    gap: 24px;
+  }
+
+  .home-page .map-launch-copy p {
+    max-width: none;
+  }
+
+  .home-page .impact-strip {
+    gap: 10px;
+  }
+
+  .home-page details {
+    margin-bottom: 10px;
+  }
+}
+
+/* One audience navigation is enough.
+   These three moments now work as recognition cues, not as a second set of
+   audience cards. They share one editorial field without pills, counters or
+   card chrome, so the reader sees examples rather than another decision. */
+.home-page .problem-examples-label {
+  margin: 0 0 14px;
+  color: var(--brand-text);
+  font-size: 1.05rem;
+  font-weight: 850;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.home-page .problem-section .problem-examples-grid {
+  gap: 0;
+  border-top: 1px solid rgba(42, 55, 63, 0.18);
+  border-bottom: 1px solid rgba(42, 55, 63, 0.18);
+  counter-reset: none;
+}
+
+.home-page .problem-section .problem-example,
+.home-page .problem-section .problem-example:hover {
+  min-height: 0;
+  padding: 30px 32px 34px;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+
+.home-page .problem-section .problem-example + .problem-example {
+  border-left: 1px solid rgba(42, 55, 63, 0.14);
+}
+
+.home-page .problem-section .problem-example::before {
+  display: none;
+  content: none;
+}
+
+.home-page .problem-section .problem-example blockquote {
+  margin: 0 0 15px;
+  font-size: clamp(1.18rem, 1.55vw, 1.36rem);
+  line-height: 1.38;
+}
+
+.home-page .problem-section .problem-example p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 720px) {
+  .home-page .problem-examples-label {
+    margin-bottom: 8px;
+  }
+
+  .home-page .problem-section .problem-examples-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-page .problem-section .problem-example,
+  .home-page .problem-section .problem-example:hover {
+    padding: 24px 0;
+  }
+
+  .home-page .problem-section .problem-example + .problem-example {
+    border-top: 1px solid rgba(42, 55, 63, 0.14);
+    border-left: 0;
+  }
+}
+
+/* Explanations stay on the calm reading surface.
+   Dark brand panels are reserved for navigation and conversion; mechanisms
+   and comparisons use open space, fine rules and one orange point of change. */
+.home-page .response-model-section.section-dark {
+  padding: clamp(72px, 7vw, 108px) 0;
+  color: var(--ink);
+  background: #eef0ee;
+}
+
+.home-page .response-model-section.section-dark > .wrap {
+  width: min(100% - 48px, var(--max));
+  padding: 0;
+  overflow: visible;
+  color: var(--ink);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.home-page .response-model-section.section-dark > .wrap::after {
+  display: none;
+}
+
+.home-page .response-model-section .eyebrow {
+  color: var(--brand-text);
+}
+
+.home-page .response-model-section h2 {
+  color: var(--ink);
+}
+
+.home-page .response-model-section .lead {
+  color: var(--muted);
+}
+
+.home-page .response-model-section .model {
+  gap: 30px 42px;
+}
+
+.home-page .response-model-section .model::before {
+  display: none;
+}
+
+.home-page .response-model-section .model-step,
+.home-page .response-model-section .model-step.highlight {
+  min-height: 138px;
+  padding: 26px 4px 24px;
+  border: 0;
+  border-top: 1px solid rgba(42, 55, 63, 0.2);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.home-page .response-model-section .model-step.highlight {
+  border-top-color: var(--resilium-orange);
+}
+
+.home-page .response-model-section .model-step > small,
+.home-page .response-model-section .model-step.highlight > small {
+  color: #3b4b54;
+  border: 1px solid #aab5ba;
+  border-radius: 50%;
+  background: #f8f9f7;
+  background-image: none;
+  box-shadow: none;
+}
+
+.home-page .response-model-section .model-step.highlight > small {
+  color: var(--cta-ink);
+  border-color: var(--resilium-orange);
+  background: var(--resilium-orange);
+}
+
+.home-page .response-model-section .model-step strong,
+.home-page .response-model-section .model-step.highlight strong {
+  color: var(--ink);
+}
+
+.home-page .response-model-section .model-step-copy span,
+.home-page .response-model-section .model-step.highlight .model-step-copy span {
+  color: var(--muted);
+}
+
+/* The comparison keeps its meaning without becoming another dark microsite. */
+.home-page .response-contrast-section {
+  background: #f7f7f5;
+}
+
+.home-page .response-contrast-card {
+  padding: 34px 0;
+  color: var(--ink);
+  border: 0;
+  border-top: 1px solid rgba(42, 55, 63, 0.18);
+  border-bottom: 1px solid rgba(42, 55, 63, 0.18);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.home-page .response-contrast-card::before {
+  display: none;
+}
+
+.home-page .response-contrast-card figcaption span {
+  color: var(--brand-text);
+}
+
+.home-page .response-contrast-card figcaption strong,
+.home-page .response-contrast-card blockquote {
+  color: var(--ink);
+}
+
+.home-page .capability-panel {
+  border: 1px solid rgba(42, 55, 63, 0.16);
+  background: rgba(255, 255, 255, 0.64);
+}
+
+.home-page .capability-panel-regulated {
+  border-color: rgba(245, 130, 40, 0.62);
+  background: rgba(245, 130, 40, 0.045);
+}
+
+.home-page .capability-kicker {
+  color: var(--brand-text);
+}
+
+.home-page .capability-panel > strong,
+.home-page .capability-panel li span {
+  color: var(--ink);
+}
+
+.home-page .capability-panel li {
+  border-left-color: #a9b3b8;
+  background: #f0f2f1;
+}
+
+.home-page .capability-panel-regulated li {
+  border-left-color: var(--resilium-orange);
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.home-page .capability-panel li em {
+  color: var(--muted);
+}
+
+.home-page .capability-pivot {
+  color: var(--ink);
+  border: 1px solid var(--resilium-orange);
+  background: #fff7f0;
+  box-shadow: none;
+}
+
+.home-page .capability-pivot span {
+  color: var(--brand-text);
+}
+
+.home-page .capability-pivot strong {
+  color: var(--ink);
+}
+
+.home-page .capability-pivot small {
+  color: #71411f;
+}
+
+.home-page .response-contrast-disclaimer {
+  color: var(--muted);
+  border-top-color: rgba(42, 55, 63, 0.15);
+}
+
+@media (max-width: 720px) {
+  .home-page .response-model-section.section-dark {
+    padding: 68px 0;
+  }
+
+  .home-page .response-model-section.section-dark > .wrap {
+    width: min(100% - 32px, var(--max));
+    padding: 0;
+  }
+
+  .home-page .response-model-section .model {
+    gap: 0;
+  }
+
+  .home-page .response-model-section .model-step,
+  .home-page .response-model-section .model-step.highlight {
+    min-height: 0;
+    padding: 24px 0;
+  }
+
+  .home-page .response-contrast-card {
+    padding: 26px 0;
+    border-radius: 0;
+  }
+}
+
+/* Clear desktop hierarchy
+   Long introductions span the section before the supporting two-column
+   content starts. This reduces line count and keeps every heading on the same
+   left-hand reading axis. */
+@media (min-width: 961px) {
+  /* The response model previously restored the old, narrower --max container.
+     Keep its outer edge on the same desktop axis as every neighbouring section. */
+  .home-page .response-model-section.section-dark > .wrap.wrap {
+    width: min(1480px, calc(100% - 64px));
+    max-width: none;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .home-page .response-contrast-card figcaption strong {
+    width: 100%;
+    max-width: none;
+    font-size: clamp(2.25rem, 4.35vw, 3.8rem);
+    line-height: 1.06;
+    letter-spacing: -0.04em;
+    text-align: left;
+    text-wrap: balance;
+  }
+
+  .home-page .response-contrast-card {
+    width: 100%;
+    max-width: none;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .home-page .section-head,
+  .home-page .audience-navigation-head,
+  .home-page .method-section-head,
+  .home-page .mentor-section-head {
+    width: 100%;
+    max-width: none;
+    margin-right: 0;
+    margin-left: 0;
+    text-align: left;
+  }
+
+  .home-page .section-head > .eyebrow,
+  .home-page .section-head > h2,
+  .home-page .section-head > .lead,
+  .home-page .section-head > p:not(.eyebrow),
+  .home-page .audience-navigation-head > .eyebrow,
+  .home-page .audience-navigation-head > h2,
+  .home-page .audience-navigation-head > p,
+  .home-page .method-section-head > .eyebrow,
+  .home-page .method-section-head > h2,
+  .home-page .method-section-head > .lead,
+  .home-page .mentor-section-head > .eyebrow,
+  .home-page .mentor-section-head > h2 {
+    width: 100%;
+    max-width: none;
+    margin-right: 0;
+    margin-left: 0;
+    text-align: left;
+    text-wrap: pretty;
+  }
+
+  .home-page .method-section-head,
+  .home-page .mentor-section-head {
+    margin-bottom: clamp(42px, 4vw, 62px);
+  }
+
+  .home-page .method-layout,
+  .home-page .mentor {
+    align-items: start;
+  }
+
+  .home-page .lead-section .lead-layout {
+    align-items: start;
+  }
+
+  .home-page .lead-section .lead-layout > div:first-child {
+    padding-top: 10px;
+  }
+}
+
+/* The experiment entry is a deliberate conversion panel. It remains dark on
+   every viewport so its white copy never disappears on the calm page surface. */
+.home-page .map-launch {
+  padding-top: clamp(52px, 5vw, 74px);
+  padding-bottom: clamp(52px, 5vw, 74px);
+  color: #fff;
+  background:
+    radial-gradient(circle at 82% 30%, rgba(245, 130, 40, 0.2), transparent 18rem),
+    linear-gradient(135deg, #4b565e 0%, #37434c 100%);
+}
+
+.home-page .map-launch-copy,
+.home-page .map-launch-copy > .map-launch-kicker,
+.home-page .map-launch-copy > h2,
+.home-page .map-launch-copy > p:not(.map-launch-kicker) {
+  max-width: none;
+  margin-left: 0;
+  text-align: left;
+}
+
+.home-page .map-launch-copy > .map-launch-kicker {
+  color: #ffc28e;
+}
+
+.home-page .map-launch-copy > h2 {
+  color: #fff;
+}
+
+.home-page .map-launch-copy > p:not(.map-launch-kicker) {
+  color: #e0e6e9;
+}
+
+@media (max-width: 960px) {
+  .home-page .method-section-head,
+  .home-page .mentor-section-head {
+    margin-bottom: 30px;
+  }
+}
+
+/* Final homepage reading axis.
+   All introductions begin on the same left edge and use the available measure
+   instead of creating isolated centred text islands. */
+.home-page .section-head,
+.home-page .audience-navigation-head,
+.home-page .response-model-section .model-wrap > :first-child,
+.home-page .response-contrast-copy,
+.home-page .method-section-head,
+.home-page .mentor-section-head {
+  width: 100%;
+  max-width: none;
+  margin-right: 0;
+  margin-left: 0;
+  text-align: left;
+}
+
+.home-page .section-head > .eyebrow,
+.home-page .section-head > h2,
+.home-page .section-head > .lead,
+.home-page .section-head > p:not(.eyebrow),
+.home-page .audience-navigation-head > .eyebrow,
+.home-page .audience-navigation-head > h2,
+.home-page .audience-navigation-head > p,
+.home-page .response-model-section .model-wrap > :first-child > .eyebrow,
+.home-page .response-model-section .model-wrap > :first-child > h2,
+.home-page .response-model-section .model-wrap > :first-child > .lead,
+.home-page .response-contrast-copy > .eyebrow,
+.home-page .response-contrast-copy > h2,
+.home-page .response-contrast-copy > .lead,
+.home-page .method-section-head > .eyebrow,
+.home-page .method-section-head > h2,
+.home-page .method-section-head > .lead,
+.home-page .mentor-section-head > .eyebrow,
+.home-page .mentor-section-head > h2,
+.home-page .mentor-section-head > .lead {
+  max-width: none;
+  margin-right: 0;
+  margin-left: 0;
+  text-align: left;
+  text-wrap: pretty;
+}
+
+.home-page .section-head > .lead,
+.home-page .section-head > p:not(.eyebrow),
+.home-page .response-model-section .model-wrap > :first-child > .lead,
+.home-page .response-contrast-copy > .lead,
+.home-page .method-section-head > .lead,
+.home-page .mentor-section-head > .lead {
+  width: min(100%, 1280px);
+}
+
+/* Method comparison: one quiet, readable pair per row. */
+.home-page .training-comparison {
+  margin-top: clamp(64px, 7vw, 104px);
+  padding-top: clamp(48px, 5vw, 76px);
+  border-top: 1px solid rgba(42, 55, 63, 0.18);
+}
+
+.home-page .training-comparison-head {
+  max-width: 980px;
+  margin-bottom: clamp(34px, 4vw, 54px);
+}
+
+.home-page .training-comparison-head h3 {
+  max-width: 900px;
+  margin: 12px 0 18px;
+  color: var(--ink);
+  font-size: clamp(2.25rem, 4.1vw, 4.25rem);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.home-page .training-comparison-head > p:not(.eyebrow) {
+  max-width: 920px;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(1.08rem, 1.4vw, 1.3rem);
+  line-height: 1.65;
+}
+
+.home-page .training-comparison-table {
+  border-top: 1px solid rgba(42, 55, 63, 0.2);
+  border-bottom: 1px solid rgba(42, 55, 63, 0.2);
+}
+
+.home-page .training-comparison-header,
+.home-page .training-comparison-row {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 0.92fr) minmax(0, 1.08fr);
+  column-gap: clamp(22px, 3vw, 48px);
+}
+
+.home-page .training-comparison-header {
+  padding: 28px 0 24px;
+  border-bottom: 1px solid rgba(42, 55, 63, 0.2);
+}
+
+.home-page .training-comparison-header > div {
+  display: grid;
+  gap: 8px;
+}
+
+.home-page .training-comparison-header > div > span {
+  width: max-content;
+  padding: 6px 12px;
+  color: #52626b;
+  border: 1px solid #aeb9be;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.home-page .training-comparison-header strong {
+  color: var(--ink);
+  font-size: 1.08rem;
+}
+
+.home-page .training-comparison-header .training-comparison-resilium span {
+  color: var(--brand-text);
+  border-color: rgba(207, 81, 6, 0.45);
+}
+
+.home-page .training-comparison-row {
+  align-items: start;
+  padding: 25px 0;
+  border-bottom: 1px solid rgba(42, 55, 63, 0.14);
+}
+
+.home-page .training-comparison-row:last-child {
+  border-bottom: 0;
+}
+
+.home-page .training-comparison-number {
+  padding-top: 2px;
+  color: #68777f;
+  font-size: 0.95rem;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+}
+
+.home-page .training-comparison-row p {
+  margin: 0;
+  color: #65747c;
+  font-size: clamp(1.02rem, 1.25vw, 1.18rem);
+  line-height: 1.55;
+}
+
+.home-page .training-comparison-row .training-comparison-resilium {
+  position: relative;
+  padding-left: 24px;
+}
+
+.home-page .training-comparison-row .training-comparison-resilium::before {
+  position: absolute;
+  top: 0.58em;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--resilium-orange);
+  content: "";
+}
+
+.home-page .training-comparison-row .training-comparison-resilium p {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .home-page .training-comparison {
+    margin-top: 54px;
+    padding-top: 42px;
+  }
+
+  .home-page .training-comparison-head h3 {
+    font-size: clamp(2.05rem, 11vw, 3.15rem);
+    line-height: 1.04;
+    text-wrap: pretty;
+  }
+
+  .home-page .training-comparison-header {
+    display: none;
+  }
+
+  .home-page .training-comparison-row {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 16px 14px;
+    padding: 26px 0 30px;
+  }
+
+  .home-page .training-comparison-number {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    color: var(--ink);
+    border: 1px solid #aeb9be;
+    border-radius: 50%;
+  }
+
+  .home-page .training-comparison-row > div {
+    grid-column: 2;
+  }
+
+  .home-page .training-comparison-row > div::before {
+    display: block;
+    margin-bottom: 7px;
+    color: #68777f;
+    content: attr(data-label);
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.12em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .home-page .training-comparison-row .training-comparison-resilium {
+    margin-top: 3px;
+    padding: 17px 0 0;
+    border-top: 1px solid rgba(42, 55, 63, 0.14);
+  }
+
+  .home-page .training-comparison-row .training-comparison-resilium::before {
+    position: static;
+    width: auto;
+    height: auto;
+    color: var(--brand-text);
+    border-radius: 0;
+    background: transparent;
+    content: attr(data-label);
+  }
+}
+
+/* Desktop reading axis
+   This file loads after the shared stylesheet, so the desktop override lives
+   here as well to prevent its earlier centred presentation rules from winning
+   through browser cache or equal-specificity cascade ties. */
+@media (min-width: 961px) {
+  .home-page .section-head,
+  .home-page .audience-navigation-head,
+  .home-page .model-wrap > div:first-child,
+  .home-page .method-layout > div:first-child,
+  .home-page .response-contrast-copy,
+  .home-page .mentor-copy,
+  .home-page .lead-layout > div:first-child,
+  .home-page .map-launch-copy {
+    width: 100%;
+    max-width: none;
+    margin-right: 0;
+    margin-left: 0;
+    text-align: left;
+  }
+
+  .home-page .section-head > .eyebrow,
+  .home-page .section-head > h2,
+  .home-page .section-head > .lead,
+  .home-page .section-head > p:not(.eyebrow),
+  .home-page .audience-navigation-head > .eyebrow,
+  .home-page .audience-navigation-head > h2,
+  .home-page .audience-navigation-head > p,
+  .home-page .model-wrap > div:first-child > .eyebrow,
+  .home-page .model-wrap > div:first-child > h2,
+  .home-page .model-wrap > div:first-child > .lead,
+  .home-page .model-wrap > div:first-child > .small,
+  .home-page .method-layout > div:first-child > .eyebrow,
+  .home-page .method-layout > div:first-child > h2,
+  .home-page .method-layout > div:first-child > .lead,
+  .home-page .response-contrast-copy > .eyebrow,
+  .home-page .response-contrast-copy > h2,
+  .home-page .response-contrast-copy > .lead,
+  .home-page .mentor-copy > .eyebrow,
+  .home-page .mentor-copy > h2,
+  .home-page .mentor-copy > .lead,
+  .home-page .lead-layout > div:first-child > .eyebrow,
+  .home-page .lead-layout > div:first-child > h2,
+  .home-page .lead-layout > div:first-child > .lead,
+  .home-page .map-launch-copy > .map-launch-kicker,
+  .home-page .map-launch-copy > h2,
+  .home-page .map-launch-copy > p:not(.map-launch-kicker) {
+    max-width: none;
+    margin-right: 0;
+    margin-left: 0;
+    text-align: left;
+    text-wrap: pretty;
+  }
+}
+
+/* Final desktop comparison measure.
+   Kept at the end because the component's base rules are declared late in
+   this stylesheet and must not restore their former 900/920px limits. */
+@media (min-width: 961px) {
+  .home-page .training-comparison-head.training-comparison-head,
+  .home-page .training-comparison-head.training-comparison-head h3,
+  .home-page .training-comparison-head.training-comparison-head > p:not(.eyebrow) {
+    width: 100%;
+    max-width: none;
+  }
+
+  .home-page .training-comparison-head.training-comparison-head h3 {
+    font-size: clamp(2rem, 3vw, 3.65rem);
+    line-height: 1.04;
+    text-wrap: nowrap;
+    white-space: nowrap;
+  }
+
+  .home-page .training-comparison-head.training-comparison-head > p:not(.eyebrow) {
+    line-height: 1.48;
+    text-wrap: pretty;
+  }
+}
