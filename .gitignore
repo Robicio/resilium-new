@@ -1,0 +1,8 @@
+dist/
+.sites/
+.DS_Store
+public/
+node_modules/
+.vercel/
+.env*
+!.env.example

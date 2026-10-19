@@ -1057,7 +1057,7 @@
 <li>Možnost programu pro tým, lídra i jednotlivce.</li>
 </ul>
 </div>
-<form class="form-card" id="leadForm" novalidate="">
+<form class="form-card" id="leadForm" data-contact-form="home">
 <div aria-label="Vyberte oblast" class="form-segment">
 <button class="active" data-segment="companies" type="button">Firma</button>
 <button data-segment="leaders" type="button">Lídr</button>
@@ -1110,7 +1110,7 @@
           </div>
 <button class="btn btn-primary btn-block" id="submitLabel" type="submit">Chci doporučit vhodný program</button>
 <div class="success" id="successMessage" role="status">
-            Děkujeme. Formulář je připraven k napojení na CRM nebo e-mailovou automatizaci.
+            Děkujeme. Vaši poptávku jsme přijali a ozveme se vám s návrhem dalšího postupu.
           </div>
 </form>
 </div>
@@ -1400,61 +1400,6 @@
       mobileSegmentQuery.addListener(repositionSegmentPanel);
     }
 
-
-    const form = document.getElementById("leadForm");
-    const successMessage = document.getElementById("successMessage");
-
-    function showError(id, message) {
-      const node = document.querySelector(`[data-error-for="${id}"]`);
-      if (node) node.textContent = message;
-    }
-
-    function clearErrors() {
-      document.querySelectorAll(".error").forEach(node => node.textContent = "");
-    }
-
-    form.addEventListener("submit", event => {
-      event.preventDefault();
-      clearErrors();
-      successMessage.style.display = "none";
-
-      let valid = true;
-      const name = document.getElementById("name");
-      const email = document.getElementById("email");
-      const consent = document.getElementById("consent");
-
-      if (!name.value.trim()) {
-        showError("name", "Vyplňte prosím jméno.");
-        valid = false;
-      }
-
-      if (!email.value.trim()) {
-        showError("email", "Vyplňte prosím e-mail.");
-        valid = false;
-      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
-        showError("email", "Zadejte platnou e-mailovou adresu.");
-        valid = false;
-      }
-
-      if (!consent.checked) {
-        showError("consent", "Pro odeslání je potřeba souhlas.");
-        valid = false;
-      }
-
-      if (!valid) return;
-
-      /*
-        PRODUKČNÍ NAPOJENÍ:
-        1. Odeslat data do CRM / Make / Zapier / vlastního API.
-        2. Uložit zdroj leadu a vybraný segment.
-        3. Odeslat segmentově odlišný potvrzovací e-mail.
-        4. Přidělit follow-up obchodníkovi nebo lektorovi.
-        5. Měřit konverze podle segmentu a CTA.
-      */
-
-      successMessage.style.display = "block";
-      successMessage.scrollIntoView({ behavior: "smooth", block: "center" });
-    });
 
     setSegment("companies");
   </script>

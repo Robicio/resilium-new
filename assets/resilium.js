@@ -211,25 +211,79 @@
     }
   });
 
-  document.querySelectorAll("form[data-mailto-form]").forEach((form) => {
-    form.addEventListener("submit", (event) => {
+  document.querySelectorAll("form[data-contact-form]").forEach((form) => {
+    const aliases = { jmeno: 'name', prijmeni: 'lastName', telefon: 'phone', organizace: 'company', firma: 'company', 'pocet-ucastniku': 'participants', situace: 'situation', fakturace: 'billing', faktura: 'billing', fakturacni_adresa: 'address', adresa: 'address', fakturacni_email: 'billingEmail', poznamka: 'note', souhlas: 'consent' };
+    const maximums = { name: 150, lastName: 150, email: 254, phone: 60, company: 200, participants: 30, situation: 4000, billing: 80, address: 500, ico: 30, dic: 30, billingEmail: 254, note: 4000 };
+    form.querySelectorAll('input, textarea').forEach(field => {
+      const max = maximums[aliases[field.name] || field.name];
+      if (max) field.maxLength = max;
+    });
+    const trap = document.createElement('div');
+    trap.style.cssText = 'position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);';
+    trap.setAttribute('aria-hidden', 'true');
+    const trapLabel = document.createElement('label');
+    trapLabel.textContent = 'Webová stránka';
+    const honeypot = document.createElement('input');
+    honeypot.name = 'website'; honeypot.tabIndex = -1; honeypot.autocomplete = 'off';
+    trapLabel.append(honeypot); trap.append(trapLabel); form.append(trap);
+    const status = document.createElement('p');
+    status.className = 'form-note'; status.setAttribute('role', 'status');
+    status.setAttribute('aria-live', 'polite'); status.tabIndex = -1; status.hidden = true;
+    form.append(status);
+    const button = form.querySelector('[type="submit"]');
+    let sending = false;
+    let lastAttempt;
+    const showStatus = (message, failed = false) => {
+      status.textContent = message; status.hidden = false;
+      status.setAttribute('role', failed ? 'alert' : 'status');
+      status.focus({ preventScroll: true });
+    };
+    form.addEventListener('submit', async event => {
       event.preventDefault();
-
-      if (!form.reportValidity()) return;
-
-      const rows = [];
-      form.querySelectorAll("input, select, textarea").forEach((field) => {
-        if (!field.value || field.type === "submit" || field.type === "button") return;
-
-        const label = field.id
-          ? form.querySelector(`label[for="${field.id}"]`)
-          : null;
-        rows.push(`${label ? label.textContent.trim() : field.name || "Údaj"}: ${field.value}`);
-      });
-
-      const subject = form.dataset.subject || "Poptávka z webu Resilium";
-      const href = `mailto:info@allprosys.cz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(rows.join("\n\n"))}`;
-      window.location.href = href;
+      if (sending || !form.reportValidity()) return;
+      if (location.protocol === 'file:') {
+        showStatus('Pro odeslání otevřete web na jeho veřejné adrese.', true); return;
+      }
+      const payload = { form: form.dataset.contactForm, category: form.dataset.category || form.elements.segment.value, consent: false };
+      for (const field of form.querySelectorAll('input, select, textarea')) {
+        if (!field.name || field.name === 'segment' || field.disabled) continue;
+        if (field.closest('.dynamic-field') && !field.closest('.dynamic-field').classList.contains('visible')) continue;
+        const key = aliases[field.name] || field.name;
+        payload[key] = field.type === 'checkbox' ? field.checked : field.value.trim();
+      }
+      const originalLabel = button.textContent;
+      const controls = [...form.querySelectorAll('button')];
+      sending = true; controls.forEach(control => { control.disabled = true; });
+      form.setAttribute('aria-busy', 'true'); button.textContent = 'Odesílání…';
+      showStatus('Odesíláme váš formulář…');
+      try {
+        const signature = [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(JSON.stringify(payload))))].map(b => b.toString(16).padStart(2, '0')).join('');
+        // Store only a digest and random retry ID, never the person's form data.
+        const storageKey = `resilium-contact-${payload.form}`;
+        try { lastAttempt = JSON.parse(sessionStorage.getItem(storageKey)) || lastAttempt; } catch { /* Storage can be disabled. */ }
+        if (!lastAttempt || lastAttempt.signature !== signature || Date.now() - lastAttempt.created > 23 * 3600000) {
+          lastAttempt = { signature, requestId: crypto.randomUUID(), created: Date.now(), accepted: false };
+        }
+        if (lastAttempt.accepted) { showStatus('Vaši poptávku jsme již přijali. Děkujeme.'); return; }
+        try { sessionStorage.setItem(storageKey, JSON.stringify(lastAttempt)); } catch { /* In-memory retry ID remains available. */ }
+        const response = await fetch('/api/contact', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ...payload, requestId: lastAttempt.requestId }),
+          signal: AbortSignal.timeout(28000)
+        });
+        const result = await response.json();
+        if (!response.ok || result.ok !== true) throw new Error(result.message || 'Odeslání se nepodařilo. Zkuste to prosím znovu.');
+        lastAttempt.accepted = true;
+        try { sessionStorage.setItem(storageKey, JSON.stringify(lastAttempt)); } catch { /* Optional storage. */ }
+        showStatus(result.message);
+      } catch (error) {
+        showStatus(error instanceof TypeError || error.name === 'TimeoutError' || error.name === 'SyntaxError'
+          ? 'Přijetí formuláře se nepodařilo potvrdit. Zkontrolujte připojení a zkuste odeslání znovu.'
+          : error.message, true);
+      } finally {
+        sending = false; controls.forEach(control => { control.disabled = false; });
+        form.removeAttribute('aria-busy'); button.textContent = originalLabel;
+      }
     });
   });
 
